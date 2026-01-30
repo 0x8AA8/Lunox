@@ -1,6 +1,7 @@
 const { ActionRowBuilder, ButtonBuilder, ButtonStyle, EmbedBuilder, InteractionType, MessageFlags } = require("discord.js");
 const { createDataGuild, createDataUser } = require("../../../functions/createData.js");
 const { permissions } = require("../../../functions/getPermission.js");
+const { t, resolveLocale } = require("../../../utils/i18n");
 const Logger = require("../../../utils/logger");
 
 module.exports = async (client, interaction) => {
@@ -10,9 +11,10 @@ module.exports = async (client, interaction) => {
     await createDataUser(client, interaction.user);
 
     const userData = client.data.get(`userData_${interaction.user.id}`);
+    const locale = resolveLocale(client, interaction.guildId, interaction.user.id);
     const embed = new EmbedBuilder().setColor(client.config.embedColor);
     const row = new ActionRowBuilder().addComponents(
-        new ButtonBuilder().setLabel("Support Server").setURL(client.config.supportServerUrl).setStyle(ButtonStyle.Link),
+        new ButtonBuilder().setLabel(t(locale, "common.supportServer")).setURL(client.config.supportServerUrl).setStyle(ButtonStyle.Link),
     );
 
     if (interaction.type === InteractionType.ApplicationCommand) {
@@ -31,13 +33,13 @@ module.exports = async (client, interaction) => {
         }
 
         if (botMissingPermissions.length > 0) {
-            const content = `The bot doesn't have one of these permissions \`${botMissingPermissions.join(", ")}\`.\nPlease double check them in your server role & channel settings.`;
+            const content = t(locale, "errors.botMissingPermissions", { perms: botMissingPermissions.join(", ") });
 
             return interaction.reply({ content: content, components: [row], flags: [MessageFlags.Ephemeral] });
         }
 
         if (userData && userData.ban.status) {
-            embed.setDescription(`You have been banned from using the bot.\n\`\`\`${userData.ban.reason}\`\`\``);
+            embed.setDescription(t(locale, "errors.userBanned", { reason: userData.ban.reason }));
 
             return interaction.reply({ embeds: [embed], components: [row], flags: [MessageFlags.Ephemeral] });
         }
@@ -45,7 +47,7 @@ module.exports = async (client, interaction) => {
         const maintenance = client.data.get("maintenance");
 
         if (maintenance && !client.config.dev.includes(interaction.user.id)) {
-            embed.setDescription(`The bot is currently under maintenance. Please try again later.`);
+            embed.setDescription(t(locale, "errors.maintenance"));
 
             return interaction.reply({ embeds: [embed], components: [row], flags: [MessageFlags.Ephemeral] });
         }

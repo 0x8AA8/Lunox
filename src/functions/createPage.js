@@ -1,11 +1,13 @@
 const { ActionRowBuilder, ButtonBuilder, ButtonStyle, EmbedBuilder, MessageFlags } = require("discord.js");
+const { t, resolveLocale } = require("../utils/i18n");
 
 module.exports = {
-    createPage: async (client, response, embed, pages) => {
+    createPage: async (client, response, embed, pages, locale) => {
         let page = 0;
+        const userLocale = locale || resolveLocale(client, response.guildId, response.user?.id || response.author?.id);
 
         const updateEmbed = (pageIndex) => {
-            embed.setDescription(pages[pageIndex] || "No data found.");
+            embed.setDescription(pages[pageIndex] || t(userLocale, "common.noDataFound"));
         };
 
         updateEmbed(page);
@@ -27,10 +29,12 @@ module.exports = {
 
             collector.on("collect", async (button) => {
                 // Prevent other users from interacting with the button
-                if (button.user.id !== response.user.id) {
+                const responderId = response.user?.id || response.author?.id;
+                if (button.user.id !== responderId) {
+                    const buttonLocale = resolveLocale(client, response.guildId, button.user.id);
                     const embedDenied = new EmbedBuilder()
                         .setColor(client.config.embedColor)
-                        .setDescription(`You are not allowed to use this button.`);
+                        .setDescription(t(buttonLocale, "errors.notAllowedButton"));
 
                     return button.reply({ embeds: [embedDenied], flags: [MessageFlags.Ephemeral] });
                 }

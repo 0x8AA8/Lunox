@@ -1,5 +1,6 @@
 const { EmbedBuilder } = require("discord.js");
 const { createPage } = require("../../../functions/createPage.js");
+const { t, resolveLocale } = require("../../../utils/i18n");
 const lodash = require("lodash");
 const Logger = require("../../../utils/logger");
 
@@ -20,13 +21,14 @@ module.exports = {
     devOnly: true,
     run: async (client, message, player, args) => {
         const ms = (await import("pretty-ms")).default;
+        const locale = resolveLocale(client, message.guildId, message.author.id);
         const embed = new EmbedBuilder().setColor(client.config.embedColor);
 
         try {
             const nodes = client.rainlink.nodes.all();
 
             if (!nodes || nodes.length === 0) {
-                embed.setDescription(`No lavalink nodes found.`);
+                embed.setDescription(t(locale, "dev.lavalink.noNodes"));
 
                 return message.reply({ embeds: [embed] });
             }
@@ -63,10 +65,10 @@ module.exports = {
 
             const pages = lodash.chunk(nodeInfo, 1).map((s) => s.join(""));
 
-            return createPage(client, message, embed, pages);
+            return createPage(client, message, embed, pages, locale);
         } catch (error) {
             Logger.error("Failed to fetch Lavalink node information:", error);
-            embed.setDescription(`An error occurred while fetching the Lavalink node information.`);
+            embed.setDescription(t(locale, "dev.lavalink.error"));
 
             return message.reply({ embeds: [embed] });
         }

@@ -1,4 +1,5 @@
 const { PermissionsBitField, EmbedBuilder } = require("discord.js");
+const { t, resolveLocale } = require("../../../utils/i18n");
 
 module.exports = async (client, oldState, newState) => {
     if (newState.channelId && newState.channel.type == 13 && newState.guild.members.me.voice.suppress) {
@@ -43,11 +44,10 @@ module.exports = async (client, oldState, newState) => {
 
                 oldStatePlayer.destroy().catch((e) => {});
 
+                const locale = resolveLocale(client, oldState.guild.id);
                 const timeoutEmbed = new EmbedBuilder()
                     .setColor(client.config.embedColor)
-                    .setDescription(
-                        `Disconnecting from the voice channel due to inactivity. You can disable this by using \`247\` command.`,
-                    );
+                    .setDescription(t(locale, "events.inactivityDisconnect"));
 
                 return leaveEmbed.send({ embeds: [timeoutEmbed] }).then((msg) => {
                     if (!msg) return;

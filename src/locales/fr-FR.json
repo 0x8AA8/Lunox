@@ -4,7 +4,9 @@
         "fullLyrics": "Paroles complètes",
         "yes": "Oui",
         "no": "Non",
-        "loading": "Veuillez patienter...!"
+        "loading": "Veuillez patienter...!",
+        "noDataFound": "Aucune donnée trouvée.",
+        "useHelpCommand": "Utilisez la commande `/help` pour obtenir la liste des commandes."
     },
     "categories": {
         "general": "Général",
@@ -34,7 +36,11 @@
         "botSpeakPermission": "Le bot n'a pas la permission de `Parler` dans votre salon vocal.",
         "botRequestToSpeak": "Le bot n'a pas la permission `Demander à parler` dans votre salon de conférence.",
         "botPrioritySpeaker": "Le bot n'a pas la permission `Orateur prioritaire` dans votre salon de conférence.",
-        "onlyRequester": "Seul le demandeur peut utiliser ce bouton."
+        "onlyRequester": "Seul le demandeur peut utiliser ce bouton.",
+        "notAllowedButton": "Vous n'êtes pas autorisé à utiliser ce bouton.",
+        "botMissingPermissions": "Le bot n'a pas l'une de ces permissions `{perms}`.\nVeuillez vérifier les paramètres de rôle et de salon de votre serveur.",
+        "userBanned": "Vous avez été banni de l'utilisation du bot.\n```{reason}```",
+        "maintenance": "Le bot est actuellement en maintenance. Veuillez réessayer plus tard."
     },
     "commands": {
         "help": {
@@ -164,6 +170,32 @@
     "events": {
         "queueEmpty": "La file d'attente est vide. Vous pouvez désactiver ceci avec la commande `247`.",
         "trackError": "Erreur de chanson. Passage à la chanson suivante...",
-        "trackErrorEmpty": "Erreur de chanson et la file d'attente est vide. Arrêt du lecteur..."
+        "trackErrorEmpty": "Erreur de chanson et la file d'attente est vide. Arrêt du lecteur...",
+        "trackStuck": "La chanson est bloquée. Passage à la chanson suivante...",
+        "trackStuckEmpty": "La chanson est bloquée et la file d'attente est vide. Arrêt du lecteur...",
+        "playerException": "Erreur lors de la lecture. Passage à la chanson suivante...",
+        "playerExceptionEmpty": "Erreur lors de la lecture et la file d'attente est vide. Arrêt du lecteur...",
+        "inactivityDisconnect": "Déconnexion du salon vocal pour cause d'inactivité. Vous pouvez désactiver ceci avec la commande `247`."
+    },
+    "dev": {
+        "ban": {
+            "userNotFound": "Utilisateur non trouvé. Veuillez mentionner un utilisateur ou fournir un ID utilisateur valide.",
+            "alreadyBanned": "L'utilisateur {user} est déjà banni.\n```Raison : {reason}```",
+            "banned": "L'utilisateur {user} a été banni.\n```Raison : {reason}```",
+            "noReason": "Aucune raison fournie"
+        },
+        "unban": {
+            "userNotFound": "Utilisateur non trouvé. Veuillez mentionner un utilisateur ou fournir un ID utilisateur valide.",
+            "notBanned": "L'utilisateur {user} n'est pas banni.",
+            "unbanned": "L'utilisateur {user} a été débanni."
+        },
+        "maintenance": {
+            "enabled": "Le mode maintenance est maintenant `activé`.",
+            "disabled": "Le mode maintenance est maintenant `désactivé`."
+        },
+        "lavalink": {
+            "noNodes": "Aucun nœud Lavalink trouvé.",
+            "error": "Une erreur s'est produite lors de la récupération des informations du nœud Lavalink."
+        }
     }
 }

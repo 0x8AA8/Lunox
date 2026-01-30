@@ -1,6 +1,8 @@
 const { ActionRowBuilder, ButtonBuilder, ButtonStyle, EmbedBuilder, PermissionsBitField } = require("discord.js");
 const { createDataGuild, createDataUser } = require("../../../functions/createData.js");
 const { permissions } = require("../../../functions/getPermission.js");
+const { t, resolveLocale } = require("../../../utils/i18n");
+const Logger = require("../../../utils/logger");
 
 module.exports = async (client, message) => {
     if (message.author.bot || !message.guild || message.system || message.webhookId) return;
@@ -9,9 +11,10 @@ module.exports = async (client, message) => {
     await createDataUser(client, message.author);
 
     const userData = client.data.get(`userData_${message.author.id}`);
+    const locale = resolveLocale(client, message.guildId, message.author.id);
     const embed = new EmbedBuilder().setColor(client.config.embedColor);
     const row = new ActionRowBuilder().addComponents(
-        new ButtonBuilder().setLabel("Support Server").setURL(client.config.supportServerUrl).setStyle(ButtonStyle.Link),
+        new ButtonBuilder().setLabel(t(locale, "common.supportServer")).setURL(client.config.supportServerUrl).setStyle(ButtonStyle.Link),
     );
 
     const botPermissions = ["ViewChannel", "SendMessages", "EmbedLinks"];
@@ -22,7 +25,7 @@ module.exports = async (client, message) => {
     }
 
     if (botMissingPermissions.length > 0) {
-        const content = `The bot doesn't have one of these permissions \`${botMissingPermissions.join(", ")}\`.\nPlease double check them in your server role & channel settings.`;
+        const content = t(locale, "errors.botMissingPermissions", { perms: botMissingPermissions.join(", ") });
 
         const dmChannel = message.author.dmChannel == null ? await message.author.createDM() : message.author.dmChannel;
 
@@ -32,7 +35,7 @@ module.exports = async (client, message) => {
     const mention = new RegExp(`^<@!?${client.user.id}>( |)$`);
 
     if (message.content.match(mention)) {
-        embed.setDescription(`Use \`/help\` command to get list of commands.`);
+        embed.setDescription(t(locale, "common.useHelpCommand"));
 
         message.reply({ embeds: [embed] });
     }
@@ -65,7 +68,7 @@ module.exports = async (client, message) => {
     );
 
     if (userData && userData.ban.status) {
-        embed.setDescription(`You have been banned from using the bot.\n\`\`\`${userData.ban.reason}\`\`\``);
+        embed.setDescription(t(locale, "errors.userBanned", { reason: userData.ban.reason }));
 
         return message.reply({ embeds: [embed] });
     }
@@ -73,7 +76,7 @@ module.exports = async (client, message) => {
     const maintenance = client.data.get("maintenance");
 
     if (maintenance && !client.config.dev.includes(message.author.id)) {
-        embed.setDescription(`The bot is currently under maintenance. Please try again later.`);
+        embed.setDescription(t(locale, "errors.maintenance"));
 
         return message.reply({ embeds: [embed] });
     }

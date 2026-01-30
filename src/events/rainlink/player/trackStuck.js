@@ -1,5 +1,6 @@
 const { EmbedBuilder } = require("discord.js");
 const Logger = require("../../../utils/logger");
+const { t, resolveLocale } = require("../../../utils/i18n");
 
 module.exports = async (client, player) => {
     if (!player) return;
@@ -11,14 +12,15 @@ module.exports = async (client, player) => {
     if (player.message) player.message.delete().catch((e) => {});
 
     const channel = await client.channels.cache.get(player.textId);
+    const locale = resolveLocale(client, player.guildId);
     const embed = new EmbedBuilder().setColor(client.data.get(`color_${player.guildId}`));
 
     if (!player.queue.isEmpty) {
-        embed.setDescription(`Song got stuck. Skipping to the next song...`);
+        embed.setDescription(t(locale, "events.trackStuck"));
 
         if (channel) await channel.send({ embeds: [embed] });
     } else {
-        embed.setDescription(`Song got stuck and the queue is empty. Stopping the player...`);
+        embed.setDescription(t(locale, "events.trackStuckEmpty"));
 
         if (channel) await channel.send({ embeds: [embed] });
     }

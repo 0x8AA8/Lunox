@@ -4,7 +4,9 @@
         "fullLyrics": "完全な歌詞",
         "yes": "はい",
         "no": "いいえ",
-        "loading": "お待ちください...！"
+        "loading": "お待ちください...！",
+        "noDataFound": "データが見つかりません。",
+        "useHelpCommand": "`/help` コマンドでコマンド一覧を確認できます。"
     },
     "categories": {
         "general": "一般",
@@ -34,7 +36,11 @@
         "botSpeakPermission": "ボットにはあなたのボイスチャンネルでの `発言` 権限がありません。",
         "botRequestToSpeak": "ボットにはあなたのステージチャンネルでの `発言リクエスト` 権限がありません。",
         "botPrioritySpeaker": "ボットにはあなたのステージチャンネルでの `優先スピーカー` 権限がありません。",
-        "onlyRequester": "リクエストした人だけがこのボタンを使用できます。"
+        "onlyRequester": "リクエストした人だけがこのボタンを使用できます。",
+        "notAllowedButton": "このボタンを使用する権限がありません。",
+        "botMissingPermissions": "ボットには次の権限のいずれかがありません `{perms}`。\nサーバーのロールとチャンネル設定を確認してください。",
+        "userBanned": "ボットの使用が禁止されています。\n```{reason}```",
+        "maintenance": "ボットは現在メンテナンス中です。後でもう一度お試しください。"
     },
     "commands": {
         "help": {
@@ -164,6 +170,32 @@
     "events": {
         "queueEmpty": "キューが空です。`247` コマンドでこれを無効にできます。",
         "trackError": "曲でエラーが発生しました。次の曲にスキップします...",
-        "trackErrorEmpty": "曲でエラーが発生し、キューが空です。プレイヤーを停止します..."
+        "trackErrorEmpty": "曲でエラーが発生し、キューが空です。プレイヤーを停止します...",
+        "trackStuck": "曲がスタックしました。次の曲にスキップします...",
+        "trackStuckEmpty": "曲がスタックし、キューが空です。プレイヤーを停止します...",
+        "playerException": "再生中にエラーが発生しました。次の曲にスキップします...",
+        "playerExceptionEmpty": "再生中にエラーが発生し、キューが空です。プレイヤーを停止します...",
+        "inactivityDisconnect": "非アクティブのためボイスチャンネルから切断します。`247` コマンドでこれを無効にできます。"
+    },
+    "dev": {
+        "ban": {
+            "userNotFound": "ユーザーが見つかりません。ユーザーをメンションするか、有効なユーザーIDを入力してください。",
+            "alreadyBanned": "ユーザー {user} は既に禁止されています。\n```理由: {reason}```",
+            "banned": "ユーザー {user} を禁止しました。\n```理由: {reason}```",
+            "noReason": "理由なし"
+        },
+        "unban": {
+            "userNotFound": "ユーザーが見つかりません。ユーザーをメンションするか、有効なユーザーIDを入力してください。",
+            "notBanned": "ユーザー {user} は禁止されていません。",
+            "unbanned": "ユーザー {user} の禁止を解除しました。"
+        },
+        "maintenance": {
+            "enabled": "メンテナンスモードが `有効` になりました。",
+            "disabled": "メンテナンスモードが `無効` になりました。"
+        },
+        "lavalink": {
+            "noNodes": "Lavalinkノードが見つかりません。",
+            "error": "Lavalinkノード情報の取得中にエラーが発生しました。"
+        }
     }
 }

@@ -1,4 +1,5 @@
 const { EmbedBuilder } = require("discord.js");
+const { t, resolveLocale } = require("../../../utils/i18n");
 
 module.exports = {
     name: "maintenance",
@@ -16,17 +17,18 @@ module.exports = {
     },
     devOnly: true,
     run: async (client, message, player, args) => {
+        const locale = resolveLocale(client, message.guildId, message.author.id);
         const embed = new EmbedBuilder().setColor(client.config.embedColor);
         const maintenance = client.data.get("maintenance");
 
         if (maintenance) {
             client.data.set("maintenance", false);
 
-            embed.setDescription(`Maintenance mode is now \`disabled\`.`);
+            embed.setDescription(t(locale, "dev.maintenance.disabled"));
         } else {
             client.data.set("maintenance", true);
 
-            embed.setDescription(`Maintenance mode is now \`enabled\`.`);
+            embed.setDescription(t(locale, "dev.maintenance.enabled"));
         }
 
         return message.reply({ embeds: [embed] });

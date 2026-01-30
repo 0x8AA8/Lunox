@@ -4,7 +4,9 @@
         "fullLyrics": "전체 가사",
         "yes": "예",
         "no": "아니오",
-        "loading": "잠시만 기다려주세요...!"
+        "loading": "잠시만 기다려주세요...!",
+        "noDataFound": "데이터를 찾을 수 없습니다.",
+        "useHelpCommand": "`/help` 명령어로 명령어 목록을 확인하세요."
     },
     "categories": {
         "general": "일반",
@@ -34,7 +36,11 @@
         "botSpeakPermission": "봇에 음성 채널 `말하기` 권한이 없습니다.",
         "botRequestToSpeak": "봇에 스테이지 채널 `발언 요청` 권한이 없습니다.",
         "botPrioritySpeaker": "봇에 스테이지 채널 `우선 발언자` 권한이 없습니다.",
-        "onlyRequester": "요청자만 이 버튼을 사용할 수 있습니다."
+        "onlyRequester": "요청자만 이 버튼을 사용할 수 있습니다.",
+        "notAllowedButton": "이 버튼을 사용할 권한이 없습니다.",
+        "botMissingPermissions": "봇에 다음 권한 중 하나가 없습니다 `{perms}`.\n서버 역할 및 채널 설정을 확인해주세요.",
+        "userBanned": "봇 사용이 차단되었습니다.\n```{reason}```",
+        "maintenance": "봇이 현재 점검 중입니다. 나중에 다시 시도해주세요."
     },
     "commands": {
         "help": {
@@ -164,6 +170,32 @@
     "events": {
         "queueEmpty": "대기열이 비어있습니다. `247` 명령어로 이를 비활성화할 수 있습니다.",
         "trackError": "노래에 오류가 발생했습니다. 다음 노래로 건너뜁니다...",
-        "trackErrorEmpty": "노래에 오류가 발생했고 대기열이 비어있습니다. 플레이어를 정지합니다..."
+        "trackErrorEmpty": "노래에 오류가 발생했고 대기열이 비어있습니다. 플레이어를 정지합니다...",
+        "trackStuck": "노래가 멈췄습니다. 다음 노래로 건너뜁니다...",
+        "trackStuckEmpty": "노래가 멈췄고 대기열이 비어있습니다. 플레이어를 정지합니다...",
+        "playerException": "재생 중 오류가 발생했습니다. 다음 노래로 건너뜁니다...",
+        "playerExceptionEmpty": "재생 중 오류가 발생했고 대기열이 비어있습니다. 플레이어를 정지합니다...",
+        "inactivityDisconnect": "비활성으로 인해 음성 채널에서 연결이 끊어집니다. `247` 명령어로 이를 비활성화할 수 있습니다."
+    },
+    "dev": {
+        "ban": {
+            "userNotFound": "사용자를 찾을 수 없습니다. 사용자를 멘션하거나 유효한 사용자 ID를 입력하세요.",
+            "alreadyBanned": "사용자 {user}은(는) 이미 차단되어 있습니다.\n```사유: {reason}```",
+            "banned": "사용자 {user}을(를) 차단했습니다.\n```사유: {reason}```",
+            "noReason": "사유 없음"
+        },
+        "unban": {
+            "userNotFound": "사용자를 찾을 수 없습니다. 사용자를 멘션하거나 유효한 사용자 ID를 입력하세요.",
+            "notBanned": "사용자 {user}은(는) 차단되어 있지 않습니다.",
+            "unbanned": "사용자 {user}의 차단을 해제했습니다."
+        },
+        "maintenance": {
+            "enabled": "점검 모드가 `활성화`되었습니다.",
+            "disabled": "점검 모드가 `비활성화`되었습니다."
+        },
+        "lavalink": {
+            "noNodes": "Lavalink 노드를 찾을 수 없습니다.",
+            "error": "Lavalink 노드 정보를 가져오는 중 오류가 발생했습니다."
+        }
     }
 }

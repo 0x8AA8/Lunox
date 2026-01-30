@@ -4,7 +4,9 @@
         "fullLyrics": "完整歌词",
         "yes": "是",
         "no": "否",
-        "loading": "请稍候...！"
+        "loading": "请稍候...！",
+        "noDataFound": "未找到数据。",
+        "useHelpCommand": "使用 `/help` 命令查看命令列表。"
     },
     "categories": {
         "general": "常规",
@@ -34,7 +36,11 @@
         "botSpeakPermission": "机器人没有在您语音频道中 `说话` 的权限。",
         "botRequestToSpeak": "机器人没有在您舞台频道中 `请求发言` 的权限。",
         "botPrioritySpeaker": "机器人没有在您舞台频道中 `优先发言者` 的权限。",
-        "onlyRequester": "只有请求者可以使用此按钮。"
+        "onlyRequester": "只有请求者可以使用此按钮。",
+        "notAllowedButton": "您无权使用此按钮。",
+        "botMissingPermissions": "机器人缺少以下权限之一 `{perms}`。\n请检查您的服务器角色和频道设置。",
+        "userBanned": "您已被禁止使用机器人。\n```{reason}```",
+        "maintenance": "机器人目前正在维护中，请稍后再试。"
     },
     "commands": {
         "help": {
@@ -164,6 +170,32 @@
     "events": {
         "queueEmpty": "队列为空。您可以使用 `247` 命令禁用此功能。",
         "trackError": "歌曲出错，正在跳到下一首...",
-        "trackErrorEmpty": "歌曲出错且队列为空，正在停止播放器..."
+        "trackErrorEmpty": "歌曲出错且队列为空，正在停止播放器...",
+        "trackStuck": "歌曲卡住了，正在跳到下一首...",
+        "trackStuckEmpty": "歌曲卡住且队列为空，正在停止播放器...",
+        "playerException": "播放时出错，正在跳到下一首...",
+        "playerExceptionEmpty": "播放时出错且队列为空，正在停止播放器...",
+        "inactivityDisconnect": "由于不活动，正在断开语音频道连接。您可以使用 `247` 命令禁用此功能。"
+    },
+    "dev": {
+        "ban": {
+            "userNotFound": "未找到用户。请提及用户或提供有效的用户ID。",
+            "alreadyBanned": "用户 {user} 已被封禁。\n```原因：{reason}```",
+            "banned": "用户 {user} 已被封禁。\n```原因：{reason}```",
+            "noReason": "无原因"
+        },
+        "unban": {
+            "userNotFound": "未找到用户。请提及用户或提供有效的用户ID。",
+            "notBanned": "用户 {user} 未被封禁。",
+            "unbanned": "用户 {user} 已被解封。"
+        },
+        "maintenance": {
+            "enabled": "维护模式已 `启用`。",
+            "disabled": "维护模式已 `禁用`。"
+        },
+        "lavalink": {
+            "noNodes": "未找到Lavalink节点。",
+            "error": "获取Lavalink节点信息时出错。"
+        }
     }
 }

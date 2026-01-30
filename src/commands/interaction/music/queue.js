@@ -30,9 +30,9 @@ module.exports = {
 
         const queueList = player.queue.map((track, index) => {
             const trackUrl = track.uri;
-            const trackTitles = formatString(track.title, 30).replace(/ - Topic$/, "") || "Unknown Title";
-            const trackArtists = formatString(track.author, 25).replace(/ - Topic$/, "") || "Unknown Author";
-            const trackDuration = track.isStream ? "LIVE" : convertTime(track.duration);
+            const trackTitles = formatString(track.title, 30).replace(/ - Topic$/, "") || t(locale, "common.unknownTitle");
+            const trackArtists = formatString(track.author, 25).replace(/ - Topic$/, "") || t(locale, "common.unknownAuthor");
+            const trackDuration = track.isStream ? t(locale, "common.live") : convertTime(track.duration);
 
             return `\`${index + 1}.\` **[${trackTitles} - ${trackArtists}](${trackUrl})**  •  \`${trackDuration}\``;
         });

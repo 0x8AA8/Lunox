@@ -7,9 +7,9 @@ module.exports = async (client, player, track) => {
 
     const locale = resolveLocale(client, player.guildId);
     const formatString = (str, maxLength) => (str.length > maxLength ? str.substr(0, maxLength - 3) + "..." : str);
-    const trackTitle = formatString(track.title || "Unknown", 30).replace(/ - Topic$/, "");
-    const trackAuthor = formatString(track.author || "Unknown", 25).replace(/ - Topic$/, "");
-    const trackDuration = track.isStream ? "LIVE" : convertTime(track.duration);
+    const trackTitle = formatString(track.title || t(locale, "common.unknown"), 30).replace(/ - Topic$/, "");
+    const trackAuthor = formatString(track.author || t(locale, "common.unknown"), 25).replace(/ - Topic$/, "");
+    const trackDuration = track.isStream ? t(locale, "common.live") : convertTime(track.duration);
     const playerEmoji = client.emoji.player;
 
     const trackMsg = new EmbedBuilder()

@@ -38,7 +38,7 @@ module.exports = {
         await Promise.all(categoryPromises);
 
         embed
-            .setAuthor({ name: `${client.user.username}'s Help`, iconURL: client.user.displayAvatarURL() })
+            .setAuthor({ name: t(locale, "commands.help.authorTitle", { bot: client.user.username }), iconURL: client.user.displayAvatarURL() })
             .setThumbnail(client.user.displayAvatarURL())
             .setDescription(t(locale, "commands.help.intro", { user: interaction.member, bot: client.user }))
             .setFooter({

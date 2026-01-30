@@ -6,7 +6,11 @@
         "no": "いいえ",
         "loading": "お待ちください...！",
         "noDataFound": "データが見つかりません。",
-        "useHelpCommand": "`/help` コマンドでコマンド一覧を確認できます。"
+        "useHelpCommand": "`/help` コマンドでコマンド一覧を確認できます。",
+        "unknown": "不明",
+        "unknownTitle": "不明なタイトル",
+        "unknownAuthor": "不明なアーティスト",
+        "live": "ライブ"
     },
     "categories": {
         "general": "一般",
@@ -45,6 +49,7 @@
     "commands": {
         "help": {
             "description": "コマンド一覧を表示",
+            "authorTitle": "{bot} ヘルプ",
             "intro": "こんにちは **{user}** さん、私は **{bot}** です。高品質なDiscord音楽ボットです。Spotify、SoundCloud、Apple Musicなどに対応しています。以下のコマンドで私ができることを確認してください：",
             "footer": "コマンド数: {count}"
         },

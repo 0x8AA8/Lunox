@@ -6,7 +6,11 @@
         "no": "Tidak",
         "loading": "Mohon tunggu...!",
         "noDataFound": "Data tidak ditemukan.",
-        "useHelpCommand": "Gunakan perintah `/help` untuk melihat daftar perintah."
+        "useHelpCommand": "Gunakan perintah `/help` untuk melihat daftar perintah.",
+        "unknown": "Tidak Diketahui",
+        "unknownTitle": "Judul Tidak Diketahui",
+        "unknownAuthor": "Artis Tidak Diketahui",
+        "live": "SIARAN LANGSUNG"
     },
     "categories": {
         "general": "Umum",
@@ -45,6 +49,7 @@
     "commands": {
         "help": {
             "description": "Dapatkan daftar perintah",
+            "authorTitle": "Bantuan {bot}",
             "intro": "Halo **{user}**, Saya **{bot}**. Bot Musik Discord berkualitas tinggi. Mendukung Spotify, SoundCloud, Apple Music & lainnya. Temukan apa yang bisa saya lakukan dengan perintah di bawah ini:",
             "footer": "Total Perintah: {count}"
         },

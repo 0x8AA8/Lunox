@@ -60,8 +60,8 @@ module.exports = {
             embed.setDescription(t(locale, "commands.play.addedPlaylist", { name: result.playlistName, url: query, count: result.tracks.length }));
         } else {
             const track = result.tracks[0];
-            const trackTitle = formatString(track.title, 30).replace(/ - Topic$/, "") || "Unknown";
-            const trackAuthor = formatString(track.author, 25).replace(/ - Topic$/, "") || "Unknown";
+            const trackTitle = formatString(track.title, 30).replace(/ - Topic$/, "") || t(locale, "common.unknown");
+            const trackAuthor = formatString(track.author, 25).replace(/ - Topic$/, "") || t(locale, "common.unknown");
 
             player.queue.add(track);
 

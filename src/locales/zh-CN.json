@@ -6,7 +6,11 @@
         "no": "否",
         "loading": "请稍候...！",
         "noDataFound": "未找到数据。",
-        "useHelpCommand": "使用 `/help` 命令查看命令列表。"
+        "useHelpCommand": "使用 `/help` 命令查看命令列表。",
+        "unknown": "未知",
+        "unknownTitle": "未知标题",
+        "unknownAuthor": "未知艺术家",
+        "live": "直播"
     },
     "categories": {
         "general": "常规",
@@ -45,6 +49,7 @@
     "commands": {
         "help": {
             "description": "获取命令列表",
+            "authorTitle": "{bot} 帮助",
             "intro": "您好 **{user}**，我是 **{bot}**。一个高品质的Discord音乐机器人。支持Spotify、SoundCloud、Apple Music等。使用以下命令了解我能做什么：",
             "footer": "命令总数：{count}"
         },

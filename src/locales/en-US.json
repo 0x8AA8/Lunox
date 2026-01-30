@@ -6,7 +6,11 @@
         "no": "No",
         "loading": "Please wait...!",
         "noDataFound": "No data found.",
-        "useHelpCommand": "Use `/help` command to get list of commands."
+        "useHelpCommand": "Use `/help` command to get list of commands.",
+        "unknown": "Unknown",
+        "unknownTitle": "Unknown Title",
+        "unknownAuthor": "Unknown Author",
+        "live": "LIVE"
     },
     "categories": {
         "general": "General",
@@ -45,6 +49,7 @@
     "commands": {
         "help": {
             "description": "Get a list of commands",
+            "authorTitle": "{bot}'s Help",
             "intro": "Hello **{user}**, I'm **{bot}**. A Rich Quality Discord Music Bot. Support Spotify, SoundCloud, Apple Music & Others. Find out what I can do using commands below:",
             "footer": "Total Commands: {count}"
         },

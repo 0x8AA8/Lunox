@@ -6,7 +6,11 @@
         "no": "Non",
         "loading": "Veuillez patienter...!",
         "noDataFound": "Aucune donnée trouvée.",
-        "useHelpCommand": "Utilisez la commande `/help` pour obtenir la liste des commandes."
+        "useHelpCommand": "Utilisez la commande `/help` pour obtenir la liste des commandes.",
+        "unknown": "Inconnu",
+        "unknownTitle": "Titre Inconnu",
+        "unknownAuthor": "Artiste Inconnu",
+        "live": "EN DIRECT"
     },
     "categories": {
         "general": "Général",
@@ -45,6 +49,7 @@
     "commands": {
         "help": {
             "description": "Obtenir la liste des commandes",
+            "authorTitle": "Aide de {bot}",
             "intro": "Bonjour **{user}**, je suis **{bot}**. Un bot musical Discord de haute qualité. Support Spotify, SoundCloud, Apple Music et autres. Découvrez ce que je peux faire avec les commandes ci-dessous :",
             "footer": "Total des commandes : {count}"
         },

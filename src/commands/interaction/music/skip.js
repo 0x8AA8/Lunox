@@ -10,6 +10,11 @@ module.exports = {
         ja: "現在の曲をスキップ",
         ko: "현재 노래 건너뛰기",
         "zh-CN": "跳过当前歌曲",
+        "en-GB": "Skip the current song",
+        "es-ES": "Saltar la canción actual",
+        de: "Aktuelles Lied überspringen",
+        "pt-BR": "Pular a música atual",
+        ru: "Пропустить текущую песню",
     },
     category: "music",
     permissions: {

@@ -1,0 +1,206 @@
+{
+  "common": {
+    "supportServer": "Servidor de Suporte",
+    "fullLyrics": "Letra Completa",
+    "yes": "Sim",
+    "no": "Não",
+    "loading": "Por favor aguarde...!",
+    "noDataFound": "Nenhum dado encontrado.",
+    "useHelpCommand": "Use o comando `/help` para ver a lista de comandos.",
+    "unknown": "Desconhecido",
+    "unknownTitle": "Título Desconhecido",
+    "unknownAuthor": "Artista Desconhecido",
+    "live": "AO VIVO"
+  },
+  "categories": {
+    "general": "Geral",
+    "music": "Música",
+    "setting": "Configurações"
+  },
+  "player": {
+    "nowPlaying": "Tocando Agora",
+    "songPaused": "Música Pausada",
+    "source": "Fonte",
+    "duration": "Duração",
+    "requestedBy": "Solicitado por",
+    "queueList": "Lista de Fila",
+    "totalSongs": "Total de Músicas: {count}",
+    "totalDuration": "Duração Total: {duration}"
+  },
+  "errors": {
+    "notInVoice": "Você precisa entrar em um canal de voz primeiro.",
+    "sameVoiceChannel": "Você precisa estar no mesmo canal de voz que o bot.",
+    "joinSameVoice": "Você precisa entrar no mesmo canal de voz que o bot.",
+    "noPlayer": "Não há reprodutor neste servidor.",
+    "noCurrentSong": "Não há nenhuma música tocando neste servidor.",
+    "devOnly": "Este comando está disponível apenas para desenvolvedores.",
+    "botPermission": "O bot não tem permissão `{perm}` para executar este comando.",
+    "userPermission": "Você não tem permissão `{perm}` para executar este comando.",
+    "botConnectPermission": "O bot não tem permissão `Conectar` no seu canal de voz.",
+    "botSpeakPermission": "O bot não tem permissão `Falar` no seu canal de voz.",
+    "botRequestToSpeak": "O bot não tem permissão `Solicitar para Falar` no seu canal de palco.",
+    "botPrioritySpeaker": "O bot não tem permissão `Orador Prioritário` no seu canal de palco.",
+    "onlyRequester": "Apenas quem solicitou pode usar este botão.",
+    "notAllowedButton": "Você não tem permissão para usar este botão.",
+    "botMissingPermissions": "O bot não tem uma destas permissões `{perms}`.\nPor favor verifique as configurações de cargo e canal do seu servidor.",
+    "userBanned": "Você foi banido de usar o bot.\n```{reason}```",
+    "maintenance": "O bot está atualmente em manutenção. Por favor tente novamente mais tarde."
+  },
+  "commands": {
+    "help": {
+      "description": "Obter lista de comandos",
+      "authorTitle": "Ajuda do {bot}",
+      "intro": "Olá **{user}**, eu sou **{bot}**. Um bot de música do Discord de alta qualidade. Suporta Spotify, SoundCloud, Apple Music e mais. Descubra o que posso fazer com os comandos abaixo:",
+      "footer": "Total de Comandos: {count}"
+    },
+    "ping": {
+      "description": "Obter o ping do bot",
+      "response": "Pong! `{ms}ms`."
+    },
+    "play": {
+      "description": "Tocar uma música",
+      "optionQuery": "Forneça um nome de música ou URL",
+      "noResults": "Nenhum resultado encontrado para sua busca.",
+      "addedTrack": "Adicionado **[{title}](url)** - `{duration}`.",
+      "addedPlaylist": "Adicionado **[{name}]({url})** - `{count}` músicas na fila."
+    },
+    "queue": {
+      "description": "Mostrar a lista de fila",
+      "empty": "A fila está vazia."
+    },
+    "skip": {
+      "description": "Pular a música atual",
+      "emptyQueue": "A fila está vazia. Não é possível pular.",
+      "skipped": "Música atual pulada."
+    },
+    "stop": {
+      "description": "Parar o reprodutor",
+      "stopped": "Música atual pulada."
+    },
+    "pause": {
+      "description": "Pausar a música atual",
+      "alreadyPaused": "Já está pausado.",
+      "paused": "Música atual pausada."
+    },
+    "resume": {
+      "description": "Retomar a música pausada",
+      "notPaused": "A música não está pausada.",
+      "resumed": "Música atual retomada."
+    },
+    "volume": {
+      "description": "Definir o volume",
+      "optionValue": "Forneça o valor do volume",
+      "current": "Volume atual: `{volume}%`",
+      "set": "Volume definido para: `{volume}%`",
+      "minVolume": "O volume não pode ser menor que `{min}%`.",
+      "maxVolume": "O volume não pode ser maior que `{max}%`."
+    },
+    "loop": {
+      "description": "Alternar modo de repetição",
+      "optionMode": "Definir modo de repetição",
+      "off": "Modo de repetição definido para `desligado`.",
+      "song": "Modo de repetição definido para `música`.",
+      "queue": "Modo de repetição definido para `fila`."
+    },
+    "shuffle": {
+      "description": "Embaralhar a fila",
+      "emptyQueue": "A fila está vazia. Não é possível embaralhar.",
+      "onlyOneSong": "Apenas uma música na fila. Não é possível embaralhar.",
+      "shuffled": "Fila embaralhada.",
+      "queueShuffled": "A fila foi embaralhada."
+    },
+    "seek": {
+      "description": "Avançar na música atual",
+      "optionTime": "Forneça o tempo em segundos",
+      "notSeekable": "A música atual não permite avanço.",
+      "timeExceeds": "O tempo é maior que a duração da música.",
+      "seeked": "Avançado para: `{time}s`"
+    },
+    "remove": {
+      "description": "Remover uma música da fila",
+      "optionPosition": "Forneça a posição da música",
+      "emptyQueue": "A fila está vazia.",
+      "invalidPosition": "A posição é maior que o total de músicas na fila.",
+      "removed": "Música na posição `{position}` removida"
+    },
+    "clear": {
+      "description": "Limpar a fila",
+      "alreadyEmpty": "A fila já está vazia.",
+      "cleared": "Fila limpa."
+    },
+    "filter": {
+      "description": "Definir o filtro",
+      "optionMode": "Escolher um filtro",
+      "cleared": "Filtro removido.",
+      "set": "Filtro definido para: `{filter}`"
+    },
+    "join": {
+      "description": "Entrar no canal de voz",
+      "alreadyJoined": "Já está em um canal de voz.",
+      "joined": "Entrou em {channel}."
+    },
+    "leave": {
+      "description": "Sair do canal de voz",
+      "leaving": "Saindo do canal de voz..."
+    },
+    "lyric": {
+      "description": "Obter a letra da música atual",
+      "notFound": "Letra não encontrada. Por favor tente novamente mais tarde.",
+      "title": "Letras do {bot}"
+    },
+    "previous": {
+      "description": "Tocar a música anterior",
+      "notFound": "Música anterior não encontrada.",
+      "playing": "Tocando a música anterior."
+    },
+    "247": {
+      "description": "Alternar modo 24/7",
+      "enabled": "Modo 24/7 agora está `ativado`.",
+      "disabled": "Modo 24/7 agora está `desativado`."
+    },
+    "autoplay": {
+      "description": "Alternar modo de reprodução automática",
+      "notSupported": "{status}. O modo de reprodução automática só pode ser usado com o YouTube.",
+      "currentNotSupported": "A plataforma da música atual não é suportada",
+      "lastNotSupported": "A plataforma da última fila não é suportada",
+      "enabled": "Modo de reprodução automática agora está `ativado`",
+      "disabled": "Modo de reprodução automática agora está `desativado`"
+    },
+    "language": {
+      "description": "Definir o idioma do servidor",
+      "optionLocale": "Escolher um idioma",
+      "updated": "Idioma atualizado para `{locale}`."
+    }
+  },
+  "events": {
+    "queueEmpty": "A fila está vazia. Você pode desativar isso usando o comando `247`.",
+    "trackError": "A música teve um erro. Pulando para a próxima...",
+    "trackErrorEmpty": "A música teve um erro e a fila está vazia. Parando o reprodutor...",
+    "trackStuck": "A música travou. Pulando para a próxima...",
+    "trackStuckEmpty": "A música travou e a fila está vazia. Parando o reprodutor...",
+    "playerException": "Erro ao reproduzir. Pulando para a próxima música...",
+    "playerExceptionEmpty": "Erro ao reproduzir e a fila está vazia. Parando o reprodutor...",
+    "inactivityDisconnect": "Desconectando do canal de voz por inatividade. Você pode desativar isso usando o comando `247`."
+  },
+  "dev": {
+    "ban": {
+      "userNotFound": "Usuário não encontrado. Por favor mencione um usuário ou forneça um ID válido.",
+      "alreadyBanned": "O usuário {user} já está banido.\n```Motivo: {reason}```",
+      "banned": "O usuário {user} foi banido.\n```Motivo: {reason}```",
+      "noReason": "Nenhum motivo fornecido"
+    },
+    "unban": {
+      "userNotFound": "Usuário não encontrado. Por favor mencione um usuário ou forneça um ID válido.",
+      "notBanned": "O usuário {user} não está banido.",
+      "unbanned": "O usuário {user} foi desbanido."
+    },
+    "maintenance": {
+      "enabled": "Modo de manutenção agora está `ativado`.",
+      "disabled": "Modo de manutenção agora está `desativado`."
+    },
+    "lavalink": {
+      "noNodes": "Nenhum nó Lavalink encontrado.",
+      "error": "Ocorreu um erro ao obter as informações do nó Lavalink."
+    }
+  }
+}

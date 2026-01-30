@@ -10,6 +10,11 @@ module.exports = {
         ja: "自動再生モードを切り替え",
         ko: "자동 재생 모드 전환",
         "zh-CN": "切换自动播放模式",
+        "en-GB": "Toggle autoplay mode",
+        "es-ES": "Alternar modo de reproducción automática",
+        de: "Autoplay-Modus umschalten",
+        "pt-BR": "Alternar modo de reprodução automática",
+        ru: "Переключить режим автовоспроизведения",
     },
     category: "setting",
     permissions: {

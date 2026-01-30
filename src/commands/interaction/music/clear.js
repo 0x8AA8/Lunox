@@ -10,6 +10,11 @@ module.exports = {
         ja: "キューをクリア",
         ko: "대기열 비우기",
         "zh-CN": "清空队列",
+        "en-GB": "Clear the queue",
+        "es-ES": "Vaciar la cola",
+        de: "Warteschlange leeren",
+        "pt-BR": "Limpar a fila",
+        ru: "Очистить очередь",
     },
     category: "music",
     permissions: {

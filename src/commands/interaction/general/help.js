@@ -11,6 +11,11 @@ module.exports = {
         ja: "コマンド一覧を表示",
         ko: "명령어 목록 보기",
         "zh-CN": "获取命令列表",
+        "en-GB": "Get a list of commands",
+        "es-ES": "Obtener lista de comandos",
+        de: "Befehlsliste anzeigen",
+        "pt-BR": "Obter lista de comandos",
+        ru: "Получить список команд",
     },
     category: "general",
     permissions: {

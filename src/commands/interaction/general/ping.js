@@ -10,6 +10,11 @@ module.exports = {
         ja: "ボットのping値を取得",
         ko: "봇 핑 확인",
         "zh-CN": "获取机器人延迟",
+        "en-GB": "Get the bot's ping",
+        "es-ES": "Obtener el ping del bot",
+        de: "Ping des Bots anzeigen",
+        "pt-BR": "Obter o ping do bot",
+        ru: "Получить пинг бота",
     },
     category: "general",
     permissions: {

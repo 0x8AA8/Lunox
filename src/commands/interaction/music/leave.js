@@ -10,6 +10,11 @@ module.exports = {
         ja: "ボイスチャンネルから退出",
         ko: "음성 채널 나가기",
         "zh-CN": "离开语音频道",
+        "en-GB": "Leave the voice channel",
+        "es-ES": "Salir del canal de voz",
+        de: "Sprachkanal verlassen",
+        "pt-BR": "Sair do canal de voz",
+        ru: "Покинуть голосовой канал",
     },
     category: "music",
     permissions: {

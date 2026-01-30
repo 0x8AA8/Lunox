@@ -16,7 +16,7 @@ module.exports = {
 
     // LOCALE SETTINGS
     defaultLocale: process.env.DEFAULT_LOCALE || "en-US", // default locale for the bot
-    supportedLocales: ["en-US", "id-ID", "ja-JP", "ko-KR", "zh-CN", "fr-FR"], // supported locales
+    supportedLocales: ["en-US", "en-GB", "id-ID", "ja-JP", "ko-KR", "zh-CN", "fr-FR", "fr", "es-ES", "de", "pt-BR", "ru"], // supported locales
 
     // RAINLINK DETAILS
     lavalinkSource: process.env.LAVALINK_SOURCE || "sp", // Available Lavalink sources, based on the sources you've enabled in your Lavalink configuration. For example, if you enable the Spotify source, then "sp" will refer to "spsearch". Will be used if "sourceID" option is provided in the play command.

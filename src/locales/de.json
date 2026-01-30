@@ -1,0 +1,206 @@
+{
+  "common": {
+    "supportServer": "Support-Server",
+    "fullLyrics": "Vollständiger Liedtext",
+    "yes": "Ja",
+    "no": "Nein",
+    "loading": "Bitte warten...!",
+    "noDataFound": "Keine Daten gefunden.",
+    "useHelpCommand": "Verwende `/help` um die Befehlsliste anzuzeigen.",
+    "unknown": "Unbekannt",
+    "unknownTitle": "Unbekannter Titel",
+    "unknownAuthor": "Unbekannter Künstler",
+    "live": "LIVE"
+  },
+  "categories": {
+    "general": "Allgemein",
+    "music": "Musik",
+    "setting": "Einstellungen"
+  },
+  "player": {
+    "nowPlaying": "Wird Abgespielt",
+    "songPaused": "Lied Pausiert",
+    "source": "Quelle",
+    "duration": "Dauer",
+    "requestedBy": "Angefordert von",
+    "queueList": "Warteschlange",
+    "totalSongs": "Lieder Gesamt: {count}",
+    "totalDuration": "Gesamtdauer: {duration}"
+  },
+  "errors": {
+    "notInVoice": "Du musst zuerst einem Sprachkanal beitreten.",
+    "sameVoiceChannel": "Du musst im gleichen Sprachkanal wie der Bot sein.",
+    "joinSameVoice": "Du musst dem gleichen Sprachkanal wie der Bot beitreten.",
+    "noPlayer": "Es gibt keinen Player auf diesem Server.",
+    "noCurrentSong": "Es wird gerade kein Lied auf diesem Server abgespielt.",
+    "devOnly": "Dieser Befehl ist nur für Entwickler verfügbar.",
+    "botPermission": "Der Bot hat keine Berechtigung `{perm}` um diesen Befehl auszuführen.",
+    "userPermission": "Du hast keine Berechtigung `{perm}` um diesen Befehl auszuführen.",
+    "botConnectPermission": "Der Bot hat keine `Verbinden`-Berechtigung für deinen Sprachkanal.",
+    "botSpeakPermission": "Der Bot hat keine `Sprechen`-Berechtigung für deinen Sprachkanal.",
+    "botRequestToSpeak": "Der Bot hat keine `Sprechen anfordern`-Berechtigung für deinen Bühnenkanal.",
+    "botPrioritySpeaker": "Der Bot hat keine `Prioritätssprecher`-Berechtigung für deinen Bühnenkanal.",
+    "onlyRequester": "Nur der Anforderer kann diesen Button verwenden.",
+    "notAllowedButton": "Du darfst diesen Button nicht verwenden.",
+    "botMissingPermissions": "Der Bot hat eine dieser Berechtigungen nicht `{perms}`.\nBitte überprüfe die Rollen- und Kanaleinstellungen deines Servers.",
+    "userBanned": "Du wurdest vom Bot gebannt.\n```{reason}```",
+    "maintenance": "Der Bot befindet sich derzeit in Wartung. Bitte versuche es später erneut."
+  },
+  "commands": {
+    "help": {
+      "description": "Befehlsliste anzeigen",
+      "authorTitle": "{bot} Hilfe",
+      "intro": "Hallo **{user}**, ich bin **{bot}**. Ein hochwertiger Discord Musik-Bot. Unterstützt Spotify, SoundCloud, Apple Music und mehr. Finde heraus was ich kann mit den Befehlen unten:",
+      "footer": "Befehle Gesamt: {count}"
+    },
+    "ping": {
+      "description": "Ping des Bots anzeigen",
+      "response": "Pong! `{ms}ms`."
+    },
+    "play": {
+      "description": "Ein Lied abspielen",
+      "optionQuery": "Liedname oder URL eingeben",
+      "noResults": "Keine Ergebnisse für deine Suche gefunden.",
+      "addedTrack": "Hinzugefügt **[{title}](url)** - `{duration}`.",
+      "addedPlaylist": "Hinzugefügt **[{name}]({url})** - `{count}` Lieder zur Warteschlange."
+    },
+    "queue": {
+      "description": "Warteschlange anzeigen",
+      "empty": "Die Warteschlange ist leer."
+    },
+    "skip": {
+      "description": "Aktuelles Lied überspringen",
+      "emptyQueue": "Warteschlange ist leer. Überspringen nicht möglich.",
+      "skipped": "Aktuelles Lied übersprungen."
+    },
+    "stop": {
+      "description": "Player stoppen",
+      "stopped": "Aktuelles Lied übersprungen."
+    },
+    "pause": {
+      "description": "Aktuelles Lied pausieren",
+      "alreadyPaused": "Bereits pausiert.",
+      "paused": "Aktuelles Lied pausiert."
+    },
+    "resume": {
+      "description": "Pausiertes Lied fortsetzen",
+      "notPaused": "Lied ist nicht pausiert.",
+      "resumed": "Aktuelles Lied fortgesetzt."
+    },
+    "volume": {
+      "description": "Lautstärke einstellen",
+      "optionValue": "Lautstärkewert eingeben",
+      "current": "Aktuelle Lautstärke: `{volume}%`",
+      "set": "Lautstärke eingestellt auf: `{volume}%`",
+      "minVolume": "Lautstärke kann nicht unter `{min}%` sein.",
+      "maxVolume": "Lautstärke kann nicht über `{max}%` sein."
+    },
+    "loop": {
+      "description": "Wiederholungsmodus umschalten",
+      "optionMode": "Wiederholungsmodus einstellen",
+      "off": "Wiederholungsmodus auf `aus` gesetzt.",
+      "song": "Wiederholungsmodus auf `Lied` gesetzt.",
+      "queue": "Wiederholungsmodus auf `Warteschlange` gesetzt."
+    },
+    "shuffle": {
+      "description": "Warteschlange mischen",
+      "emptyQueue": "Warteschlange ist leer. Mischen nicht möglich.",
+      "onlyOneSong": "Nur ein Lied in der Warteschlange. Mischen nicht möglich.",
+      "shuffled": "Warteschlange gemischt.",
+      "queueShuffled": "Warteschlange wurde gemischt."
+    },
+    "seek": {
+      "description": "Im aktuellen Lied spulen",
+      "optionTime": "Zeit in Sekunden eingeben",
+      "notSeekable": "Das aktuelle Lied unterstützt kein Spulen.",
+      "timeExceeds": "Zeit ist größer als die Dauer des Liedes.",
+      "seeked": "Gespult zu: `{time}s`"
+    },
+    "remove": {
+      "description": "Lied aus Warteschlange entfernen",
+      "optionPosition": "Liedposition eingeben",
+      "emptyQueue": "Die Warteschlange ist leer.",
+      "invalidPosition": "Position ist größer als die Gesamtanzahl der Lieder.",
+      "removed": "Lied an Position `{position}` entfernt"
+    },
+    "clear": {
+      "description": "Warteschlange leeren",
+      "alreadyEmpty": "Die Warteschlange ist bereits leer.",
+      "cleared": "Warteschlange geleert."
+    },
+    "filter": {
+      "description": "Filter einstellen",
+      "optionMode": "Filter auswählen",
+      "cleared": "Filter entfernt.",
+      "set": "Filter eingestellt auf: `{filter}`"
+    },
+    "join": {
+      "description": "Sprachkanal beitreten",
+      "alreadyJoined": "Bereits einem Sprachkanal beigetreten.",
+      "joined": "Beigetreten: {channel}."
+    },
+    "leave": {
+      "description": "Sprachkanal verlassen",
+      "leaving": "Verlasse Sprachkanal..."
+    },
+    "lyric": {
+      "description": "Liedtext des aktuellen Liedes anzeigen",
+      "notFound": "Kein Liedtext gefunden. Bitte später erneut versuchen.",
+      "title": "{bot} Liedtexte"
+    },
+    "previous": {
+      "description": "Vorheriges Lied abspielen",
+      "notFound": "Vorheriges Lied nicht gefunden.",
+      "playing": "Spiele vorheriges Lied."
+    },
+    "247": {
+      "description": "24/7 Modus umschalten",
+      "enabled": "24/7 Modus ist jetzt `aktiviert`.",
+      "disabled": "24/7 Modus ist jetzt `deaktiviert`."
+    },
+    "autoplay": {
+      "description": "Autoplay-Modus umschalten",
+      "notSupported": "{status}. Autoplay-Modus kann nur mit YouTube verwendet werden.",
+      "currentNotSupported": "Die Plattform des aktuellen Liedes wird nicht unterstützt",
+      "lastNotSupported": "Die Plattform der letzten Warteschlange wird nicht unterstützt",
+      "enabled": "Autoplay-Modus ist jetzt `aktiviert`",
+      "disabled": "Autoplay-Modus ist jetzt `deaktiviert`"
+    },
+    "language": {
+      "description": "Serversprache einstellen",
+      "optionLocale": "Sprache auswählen",
+      "updated": "Sprache aktualisiert auf `{locale}`."
+    }
+  },
+  "events": {
+    "queueEmpty": "Die Warteschlange ist leer. Du kannst dies mit dem `247` Befehl deaktivieren.",
+    "trackError": "Lied hatte einen Fehler. Springe zum nächsten Lied...",
+    "trackErrorEmpty": "Lied hatte einen Fehler und die Warteschlange ist leer. Stoppe den Player...",
+    "trackStuck": "Lied ist hängengeblieben. Springe zum nächsten Lied...",
+    "trackStuckEmpty": "Lied ist hängengeblieben und die Warteschlange ist leer. Stoppe den Player...",
+    "playerException": "Fehler beim Abspielen. Springe zum nächsten Lied...",
+    "playerExceptionEmpty": "Fehler beim Abspielen und die Warteschlange ist leer. Stoppe den Player...",
+    "inactivityDisconnect": "Verlasse den Sprachkanal wegen Inaktivität. Du kannst dies mit dem `247` Befehl deaktivieren."
+  },
+  "dev": {
+    "ban": {
+      "userNotFound": "Benutzer nicht gefunden. Bitte erwähne einen Benutzer oder gib eine gültige Benutzer-ID an.",
+      "alreadyBanned": "Benutzer {user} ist bereits gebannt.\n```Grund: {reason}```",
+      "banned": "Benutzer {user} wurde gebannt.\n```Grund: {reason}```",
+      "noReason": "Kein Grund angegeben"
+    },
+    "unban": {
+      "userNotFound": "Benutzer nicht gefunden. Bitte erwähne einen Benutzer oder gib eine gültige Benutzer-ID an.",
+      "notBanned": "Benutzer {user} ist nicht gebannt.",
+      "unbanned": "Benutzer {user} wurde entbannt."
+    },
+    "maintenance": {
+      "enabled": "Wartungsmodus ist jetzt `aktiviert`.",
+      "disabled": "Wartungsmodus ist jetzt `deaktiviert`."
+    },
+    "lavalink": {
+      "noNodes": "Keine Lavalink-Knoten gefunden.",
+      "error": "Beim Abrufen der Lavalink-Knoten-Informationen ist ein Fehler aufgetreten."
+    }
+  }
+}

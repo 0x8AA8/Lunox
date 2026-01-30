@@ -10,6 +10,11 @@ module.exports = {
         ja: "キューをシャッフル",
         ko: "대기열 섞기",
         "zh-CN": "随机播放队列",
+        "en-GB": "Shuffle the queue",
+        "es-ES": "Mezclar la cola",
+        de: "Warteschlange mischen",
+        "pt-BR": "Embaralhar a fila",
+        ru: "Перемешать очередь",
     },
     category: "music",
     permissions: {

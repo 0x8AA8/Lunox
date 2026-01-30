@@ -10,6 +10,11 @@ module.exports = {
         ja: "現在の曲を一時停止",
         ko: "현재 노래 일시 정지",
         "zh-CN": "暂停当前歌曲",
+        "en-GB": "Pause the current song",
+        "es-ES": "Pausar la canción actual",
+        de: "Aktuelles Lied pausieren",
+        "pt-BR": "Pausar a música atual",
+        ru: "Приостановить текущую песню",
     },
     category: "music",
     permissions: {

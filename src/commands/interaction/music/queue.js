@@ -12,6 +12,11 @@ module.exports = {
         ja: "キューリストを表示",
         ko: "대기열 목록 보기",
         "zh-CN": "显示队列列表",
+        "en-GB": "Show the queue list",
+        "es-ES": "Mostrar la lista de cola",
+        de: "Warteschlange anzeigen",
+        "pt-BR": "Mostrar a lista de fila",
+        ru: "Показать список очереди",
     },
     category: "music",
     permissions: {

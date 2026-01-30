@@ -12,6 +12,11 @@ module.exports = {
         ja: "現在の曲の歌詞を取得",
         ko: "현재 노래 가사 가져오기",
         "zh-CN": "获取当前歌曲歌词",
+        "en-GB": "Get the lyrics of the current song",
+        "es-ES": "Obtener la letra de la canción actual",
+        de: "Text des aktuellen Liedes abrufen",
+        "pt-BR": "Obter a letra da música atual",
+        ru: "Получить текст текущей песни",
     },
     category: "music",
     permissions: {

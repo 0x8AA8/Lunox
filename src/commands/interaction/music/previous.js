@@ -10,6 +10,11 @@ module.exports = {
         ja: "前の曲を再生",
         ko: "이전 노래 재생",
         "zh-CN": "播放上一首歌曲",
+        "en-GB": "Play the previous song",
+        "es-ES": "Reproducir la canción anterior",
+        de: "Vorheriges Lied abspielen",
+        "pt-BR": "Tocar a música anterior",
+        ru: "Воспроизвести предыдущую песню",
     },
     category: "music",
     permissions: {

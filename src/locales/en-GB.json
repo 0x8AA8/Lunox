@@ -1,0 +1,206 @@
+{
+  "common": {
+    "supportServer": "Support Server",
+    "fullLyrics": "Full Lyrics",
+    "yes": "Yes",
+    "no": "No",
+    "loading": "Please wait...!",
+    "noDataFound": "No data found.",
+    "useHelpCommand": "Use `/help` command to get list of commands.",
+    "unknown": "Unknown",
+    "unknownTitle": "Unknown Title",
+    "unknownAuthor": "Unknown Artist",
+    "live": "LIVE"
+  },
+  "categories": {
+    "general": "General",
+    "music": "Music",
+    "setting": "Settings"
+  },
+  "player": {
+    "nowPlaying": "Now Playing",
+    "songPaused": "Song Paused",
+    "source": "Source",
+    "duration": "Duration",
+    "requestedBy": "Requested by",
+    "queueList": "Queue List",
+    "totalSongs": "Total Songs: {count}",
+    "totalDuration": "Total Duration: {duration}"
+  },
+  "errors": {
+    "notInVoice": "You need to join a voice channel first.",
+    "sameVoiceChannel": "You must be in the same voice channel as the bot.",
+    "joinSameVoice": "You need to join the same voice channel as the bot.",
+    "noPlayer": "There is no player in this server.",
+    "noCurrentSong": "There is no song currently playing in this server.",
+    "devOnly": "This command is only available for developers.",
+    "botPermission": "The bot doesn't have permission `{perm}` to execute this command.",
+    "userPermission": "You don't have permission `{perm}` to execute this command.",
+    "botConnectPermission": "The bot doesn't have permission `Connect` in your voice channel.",
+    "botSpeakPermission": "The bot doesn't have permission `Speak` in your voice channel.",
+    "botRequestToSpeak": "The bot doesn't have permission `Request To Speak` in your stage channel.",
+    "botPrioritySpeaker": "The bot doesn't have permission `Priority Speaker` in your stage channel.",
+    "onlyRequester": "Only the requester can use this button.",
+    "notAllowedButton": "You are not allowed to use this button.",
+    "botMissingPermissions": "The bot doesn't have one of these permissions `{perms}`.\nPlease double check them in your server role & channel settings.",
+    "userBanned": "You have been banned from using the bot.\n```{reason}```",
+    "maintenance": "The bot is currently under maintenance. Please try again later."
+  },
+  "commands": {
+    "help": {
+      "description": "Get a list of commands",
+      "authorTitle": "{bot}'s Help",
+      "intro": "Hello **{user}**, I'm **{bot}**. A high quality Discord music bot. Supporting Spotify, SoundCloud, Apple Music & more. Find out what I can do using the commands below:",
+      "footer": "Total Commands: {count}"
+    },
+    "ping": {
+      "description": "Get the bot's ping",
+      "response": "Pong! `{ms}ms`."
+    },
+    "play": {
+      "description": "Play a song",
+      "optionQuery": "Provide a song name or URL",
+      "noResults": "No results found for your query.",
+      "addedTrack": "Added **[{title}](url)** - `{duration}`.",
+      "addedPlaylist": "Added **[{name}]({url})** - `{count}` songs to the queue."
+    },
+    "queue": {
+      "description": "Show the queue list",
+      "empty": "The queue is empty."
+    },
+    "skip": {
+      "description": "Skip the current song",
+      "emptyQueue": "Queue is empty. Skip not possible.",
+      "skipped": "Skipped the current song."
+    },
+    "stop": {
+      "description": "Stop the player",
+      "stopped": "Skipped the current song."
+    },
+    "pause": {
+      "description": "Pause the current song",
+      "alreadyPaused": "Already paused.",
+      "paused": "Paused the current song."
+    },
+    "resume": {
+      "description": "Resume the current paused song",
+      "notPaused": "Song is not paused.",
+      "resumed": "Resumed the current song."
+    },
+    "volume": {
+      "description": "Set the volume",
+      "optionValue": "Provide volume value",
+      "current": "Current volume: `{volume}%`",
+      "set": "Volume has been set to: `{volume}%`",
+      "minVolume": "Volume cannot be set below `{min}%`.",
+      "maxVolume": "Volume cannot be set above `{max}%`."
+    },
+    "loop": {
+      "description": "Toggle loop mode",
+      "optionMode": "Set loop mode",
+      "off": "Loop mode has been set to `off`.",
+      "song": "Loop mode has been set to `song`.",
+      "queue": "Loop mode has been set to `queue`."
+    },
+    "shuffle": {
+      "description": "Shuffle the queue",
+      "emptyQueue": "Queue is empty. Shuffle not possible.",
+      "onlyOneSong": "Only one song in queue. Shuffle not possible.",
+      "shuffled": "Shuffled the queue.",
+      "queueShuffled": "Queue has been shuffled."
+    },
+    "seek": {
+      "description": "Seek the current song",
+      "optionTime": "Provide time in seconds",
+      "notSeekable": "The current song is not seekable.",
+      "timeExceeds": "Time is greater than the duration of the song.",
+      "seeked": "Seeked to: `{time}s`"
+    },
+    "remove": {
+      "description": "Remove a song from the queue",
+      "optionPosition": "Provide song position",
+      "emptyQueue": "The queue is empty.",
+      "invalidPosition": "Position is greater than the total songs in the queue.",
+      "removed": "Removed song position: `{position}`"
+    },
+    "clear": {
+      "description": "Clear the queue",
+      "alreadyEmpty": "The queue is already empty.",
+      "cleared": "Cleared the queue."
+    },
+    "filter": {
+      "description": "Set the filter",
+      "optionMode": "Choose a filter",
+      "cleared": "Filter has been cleared.",
+      "set": "Filter has been set to: `{filter}`"
+    },
+    "join": {
+      "description": "Join the voice channel",
+      "alreadyJoined": "Already joined a voice channel.",
+      "joined": "Joined {channel}."
+    },
+    "leave": {
+      "description": "Leave the voice channel",
+      "leaving": "Leaving voice channel..."
+    },
+    "lyric": {
+      "description": "Get the lyrics of the current song",
+      "notFound": "No lyrics found. Please try again later.",
+      "title": "{bot} Lyrics"
+    },
+    "previous": {
+      "description": "Play the previous song",
+      "notFound": "Previous song not found.",
+      "playing": "Playing the previous song."
+    },
+    "247": {
+      "description": "Toggle 24/7 mode",
+      "enabled": "24/7 mode is now `enabled`.",
+      "disabled": "24/7 mode is now `disabled`."
+    },
+    "autoplay": {
+      "description": "Toggle autoplay mode",
+      "notSupported": "{status}. Autoplay mode can only be used with YouTube.",
+      "currentNotSupported": "The current song platform is not supported",
+      "lastNotSupported": "The last queue platform is not supported",
+      "enabled": "Autoplay mode is now `enabled`",
+      "disabled": "Autoplay mode is now `disabled`"
+    },
+    "language": {
+      "description": "Set the server language",
+      "optionLocale": "Choose a language",
+      "updated": "Language updated to `{locale}`."
+    }
+  },
+  "events": {
+    "queueEmpty": "The queue is empty. You can disable this by using the `247` command.",
+    "trackError": "Song got an error. Skipping to the next song...",
+    "trackErrorEmpty": "Song got an error and the queue is empty. Stopping the player...",
+    "trackStuck": "Song got stuck. Skipping to the next song...",
+    "trackStuckEmpty": "Song got stuck and the queue is empty. Stopping the player...",
+    "playerException": "Error while playing. Skipping to the next song...",
+    "playerExceptionEmpty": "Error while playing and the queue is empty. Stopping the player...",
+    "inactivityDisconnect": "Disconnecting from the voice channel due to inactivity. You can disable this by using the `247` command."
+  },
+  "dev": {
+    "ban": {
+      "userNotFound": "User not found. Please mention a user or provide a valid user ID.",
+      "alreadyBanned": "User {user} is already banned.\n```Reason: {reason}```",
+      "banned": "User {user} has been banned.\n```Reason: {reason}```",
+      "noReason": "No reason provided"
+    },
+    "unban": {
+      "userNotFound": "User not found. Please mention a user or provide a valid user ID.",
+      "notBanned": "User {user} is not banned.",
+      "unbanned": "User {user} has been unbanned."
+    },
+    "maintenance": {
+      "enabled": "Maintenance mode is now `enabled`.",
+      "disabled": "Maintenance mode is now `disabled`."
+    },
+    "lavalink": {
+      "noNodes": "No Lavalink nodes found.",
+      "error": "An error occurred while fetching the Lavalink node information."
+    }
+  }
+}

@@ -10,6 +10,11 @@ module.exports = {
         ja: "ボイスチャンネルに参加",
         ko: "음성 채널 참가",
         "zh-CN": "加入语音频道",
+        "en-GB": "Join the voice channel",
+        "es-ES": "Unirse al canal de voz",
+        de: "Sprachkanal beitreten",
+        "pt-BR": "Entrar no canal de voz",
+        ru: "Присоединиться к голосовому каналу",
     },
     category: "music",
     permissions: {

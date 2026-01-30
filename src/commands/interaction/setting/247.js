@@ -10,6 +10,11 @@ module.exports = {
         ja: "24/7モードを切り替え",
         ko: "24/7 모드 전환",
         "zh-CN": "切换24/7模式",
+        "en-GB": "Toggle 24/7 mode",
+        "es-ES": "Alternar modo 24/7",
+        de: "24/7-Modus umschalten",
+        "pt-BR": "Alternar modo 24/7",
+        ru: "Переключить режим 24/7",
     },
     category: "setting",
     permissions: {

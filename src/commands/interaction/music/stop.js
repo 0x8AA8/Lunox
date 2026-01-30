@@ -10,6 +10,11 @@ module.exports = {
         ja: "プレイヤーを停止",
         ko: "플레이어 정지",
         "zh-CN": "停止播放器",
+        "en-GB": "Stop the player",
+        "es-ES": "Detener el reproductor",
+        de: "Player stoppen",
+        "pt-BR": "Parar o reprodutor",
+        ru: "Остановить плеер",
     },
     category: "music",
     permissions: {

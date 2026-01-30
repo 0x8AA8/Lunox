@@ -10,6 +10,11 @@ module.exports = {
         ja: "一時停止中の曲を再開",
         ko: "일시 정지된 노래 재개",
         "zh-CN": "恢复暂停的歌曲",
+        "en-GB": "Resume the current paused song",
+        "es-ES": "Reanudar la canción pausada",
+        de: "Pausiertes Lied fortsetzen",
+        "pt-BR": "Retomar a música pausada",
+        ru: "Возобновить приостановленную песню",
     },
     category: "music",
     permissions: {

@@ -1,10 +1,13 @@
 const { PermissionsBitField, MessageFlags } = require("discord.js");
+const { t, resolveLocale } = require("../utils/i18n");
 
 module.exports = {
     permissions: async (client, response, command, embed, player, args) => {
+        const locale = resolveLocale(client, response.guildId, response.member?.id);
+
         if (command.permissions.bot) {
             if (!response.guild.members.me.permissions.has(command.permissions.bot || [])) {
-                embed.setDescription(`The bot doesn't have permission \`${command.permissions.bot.join(", ")}\` to execute this command.`);
+                embed.setDescription(t(locale, "errors.botPermission", { perm: command.permissions.bot.join(", ") }));
 
                 return response.reply({ embeds: [embed], flags: [MessageFlags.Ephemeral] });
             }
@@ -12,7 +15,7 @@ module.exports = {
 
         if (command.permissions.user) {
             if (!response.member.permissions.has(command.permissions.user || [])) {
-                embed.setDescription(`You don't have permission \`${command.permissions.user.join(", ")}\` to execute this command.`);
+                embed.setDescription(t(locale, "errors.userPermission", { perm: command.permissions.user.join(", ") }));
 
                 return response.reply({ embeds: [embed], flags: [MessageFlags.Ephemeral] });
             }
@@ -20,7 +23,7 @@ module.exports = {
 
         if (command.settings.voice) {
             if (!response.member.voice.channel) {
-                embed.setDescription(`You need to join a voice channel first.`);
+                embed.setDescription(t(locale, "errors.notInVoice"));
 
                 return response.reply({ embeds: [embed], flags: [MessageFlags.Ephemeral] });
             }
@@ -29,7 +32,7 @@ module.exports = {
                 !response.guild.members.me.permissions.has(PermissionsBitField.Flags.Connect) ||
                 !response.guild.members.me.permissionsIn(response.member.voice.channelId).has(PermissionsBitField.Flags.Connect)
             ) {
-                embed.setDescription(`The bot doesn't have permission \`Connect\` in your voice channel.`);
+                embed.setDescription(t(locale, "errors.botConnectPermission"));
 
                 return response.reply({ embeds: [embed], flags: [MessageFlags.Ephemeral] });
             }
@@ -38,7 +41,7 @@ module.exports = {
                 !response.guild.members.me.permissions.has(PermissionsBitField.Flags.Speak) ||
                 !response.guild.members.me.permissionsIn(response.member.voice.channelId).has(PermissionsBitField.Flags.Speak)
             ) {
-                embed.setDescription(`The bot doesn't have permission \`Speak\` in your voice channel.`);
+                embed.setDescription(t(locale, "errors.botSpeakPermission"));
 
                 return response.reply({ embeds: [embed], flags: [MessageFlags.Ephemeral] });
             }
@@ -48,7 +51,7 @@ module.exports = {
                     !response.guild.members.me.permissions.has(PermissionsBitField.Flags.RequestToSpeak) ||
                     !response.guild.members.me.permissionsIn(response.member.voice.channelId).has(PermissionsBitField.Flags.RequestToSpeak)
                 ) {
-                    embed.setDescription(`The bot doesn't have permission \`Request To Speak\` in your stage channel.`);
+                    embed.setDescription(t(locale, "errors.botRequestToSpeak"));
 
                     return response.reply({ embeds: [embed], flags: [MessageFlags.Ephemeral] });
                 }
@@ -57,7 +60,7 @@ module.exports = {
                     !response.guild.members.me.permissions.has(PermissionsBitField.Flags.PrioritySpeaker) ||
                     !response.guild.members.me.permissionsIn(response.member.voice.channelId).has(PermissionsBitField.Flags.PrioritySpeaker)
                 ) {
-                    embed.setDescription(`The bot doesn't have permission \`Priority Speaker\` in your stage channel.`);
+                    embed.setDescription(t(locale, "errors.botPrioritySpeaker"));
 
                     return response.reply({ embeds: [embed], flags: [MessageFlags.Ephemeral] });
                 }
@@ -66,13 +69,13 @@ module.exports = {
 
         if (command.settings.player) {
             if (!player) {
-                embed.setDescription(`There is no player in this server.`);
+                embed.setDescription(t(locale, "errors.noPlayer"));
 
                 return response.reply({ embeds: [embed], flags: [MessageFlags.Ephemeral] });
             }
 
             if (player.voiceId !== response.member.voice.channelId) {
-                embed.setDescription(`You need to join the same voice channel as the bot.`);
+                embed.setDescription(t(locale, "errors.joinSameVoice"));
 
                 return response.reply({ embeds: [embed], flags: [MessageFlags.Ephemeral] });
             }
@@ -80,7 +83,7 @@ module.exports = {
 
         if (command.settings.current) {
             if (!player.queue.current) {
-                embed.setDescription(`There is no song currently playing in this server.`);
+                embed.setDescription(t(locale, "errors.noCurrentSong"));
 
                 return response.reply({ embeds: [embed], flags: [MessageFlags.Ephemeral] });
             }
@@ -88,7 +91,7 @@ module.exports = {
 
         if (command.devOnly) {
             if (!client.config.dev.includes(response.member.id)) {
-                embed.setDescription(`This command only available for developers.`);
+                embed.setDescription(t(locale, "errors.devOnly"));
 
                 return response.reply({ embeds: [embed], flags: [MessageFlags.Ephemeral] });
             }

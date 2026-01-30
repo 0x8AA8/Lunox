@@ -1,4 +1,5 @@
 const { EmbedBuilder, MessageFlags } = require("discord.js");
+const { t, resolveLocale } = require("../../../utils/i18n");
 
 module.exports = {
     name: "ping",
@@ -15,7 +16,8 @@ module.exports = {
     },
     devOnly: false,
     run: async (client, interaction, player) => {
-        const embed = new EmbedBuilder().setColor(client.config.embedColor).setDescription(`🏓 Pong! \`${Math.round(client.ws.ping)}ms\`.`);
+        const locale = resolveLocale(client, interaction.guildId, interaction.user.id);
+        const embed = new EmbedBuilder().setColor(client.config.embedColor).setDescription(`🏓 ${t(locale, "commands.ping.response", { ms: Math.round(client.ws.ping) })}`);
 
         return interaction.reply({ embeds: [embed], flags: [MessageFlags.Ephemeral] });
     },

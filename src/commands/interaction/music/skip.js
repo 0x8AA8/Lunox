@@ -1,4 +1,5 @@
 const { EmbedBuilder, MessageFlags } = require("discord.js");
+const { t, resolveLocale } = require("../../../utils/i18n");
 
 module.exports = {
     name: "skip",
@@ -15,17 +16,18 @@ module.exports = {
     },
     devOnly: false,
     run: async (client, interaction, player) => {
+        const locale = resolveLocale(client, interaction.guildId, interaction.user.id);
         const embed = new EmbedBuilder().setColor(client.config.embedColor);
 
         if (player.queue.isEmpty && !client.data.get("autoplay", player.guildId)) {
-            embed.setDescription(`Queue is empty. Skip not possible.`);
+            embed.setDescription(t(locale, "commands.skip.emptyQueue"));
 
             return interaction.reply({ embeds: [embed], flags: [MessageFlags.Ephemeral] });
         }
 
         player.skip();
 
-        embed.setDescription(`Skipped the current song.`);
+        embed.setDescription(t(locale, "commands.skip.skipped"));
 
         return interaction.reply({ embeds: [embed], flags: [MessageFlags.Ephemeral] });
     },

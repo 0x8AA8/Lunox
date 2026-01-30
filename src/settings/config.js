@@ -14,6 +14,10 @@ module.exports = {
     mongoUri: process.env.MONGO_URI || " ", // your MongoDB Uri
     supportServerUrl: process.env.SUPPORT_SERVER_URL || " ", // your support server url
 
+    // LOCALE SETTINGS
+    defaultLocale: process.env.DEFAULT_LOCALE || "en-US", // default locale for the bot
+    supportedLocales: ["en-US", "id-ID", "ja-JP", "ko-KR", "zh-CN", "fr-FR"], // supported locales
+
     // RAINLINK DETAILS
     lavalinkSource: process.env.LAVALINK_SOURCE || "sp", // Available Lavalink sources, based on the sources you've enabled in your Lavalink configuration. For example, if you enable the Spotify source, then "sp" will refer to "spsearch". Will be used if "sourceID" option is provided in the play command.
     rainlinkOptions: {

@@ -1,5 +1,6 @@
 const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require("discord.js");
 const { readdirSync } = require("fs");
+const { t, resolveLocale } = require("../../../utils/i18n");
 
 module.exports = {
     name: "help",
@@ -16,6 +17,7 @@ module.exports = {
     },
     devOnly: false,
     run: async (client, interaction, player) => {
+        const locale = resolveLocale(client, interaction.guildId, interaction.user.id);
         const embed = new EmbedBuilder().setColor(client.config.embedColor);
         const categories = readdirSync("./src/commands/interaction/");
 
@@ -28,8 +30,7 @@ module.exports = {
                 }),
             );
 
-            const categoryNames = { general: "General", music: "Music", setting: "Settings" };
-            const categoryName = categoryNames[category] || null;
+            const categoryName = t(locale, `categories.${category}`);
 
             return embed.addFields({ name: `\`❯\`  ${toOppositeCase(categoryName)}`, value: `${slashCommandData.join(", ")}` });
         });
@@ -39,17 +40,15 @@ module.exports = {
         embed
             .setAuthor({ name: `${client.user.username}'s Help`, iconURL: client.user.displayAvatarURL() })
             .setThumbnail(client.user.displayAvatarURL())
-            .setDescription(
-                `Hello **${interaction.member}**, I'm **${client.user}**. A Rich Quality Discord Music Bot. Support  Spotify, SoundCloud, Apple Music & Others. Find out what I can do using commands below:`,
-            )
+            .setDescription(t(locale, "commands.help.intro", { user: interaction.member, bot: client.user }))
             .setFooter({
-                text: `© ${client.user.username} | Total Commands: ${client.slash.size}`,
+                text: `© ${client.user.username} | ${t(locale, "commands.help.footer", { count: client.slash.size })}`,
                 iconURL: client.user.displayAvatarURL({ dynamic: true }),
             })
             .setTimestamp();
 
         const row = new ActionRowBuilder().addComponents(
-            new ButtonBuilder().setLabel("Support Server").setURL(client.config.supportServerUrl).setStyle(ButtonStyle.Link),
+            new ButtonBuilder().setLabel(t(locale, "common.supportServer")).setURL(client.config.supportServerUrl).setStyle(ButtonStyle.Link),
         );
 
         return interaction.reply({ embeds: [embed], components: [row] });

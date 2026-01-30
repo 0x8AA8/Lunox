@@ -1,4 +1,5 @@
 const { EmbedBuilder, MessageFlags } = require("discord.js");
+const { t, resolveLocale } = require("../../../utils/i18n");
 
 module.exports = {
     name: "leave",
@@ -15,9 +16,11 @@ module.exports = {
     },
     devOnly: false,
     run: async (client, interaction, player) => {
+        const locale = resolveLocale(client, interaction.guildId, interaction.user.id);
+
         player.destroy();
 
-        const embed = new EmbedBuilder().setColor(client.config.embedColor).setDescription(`Leaving voice channel...`);
+        const embed = new EmbedBuilder().setColor(client.config.embedColor).setDescription(t(locale, "commands.leave.leaving"));
 
         return interaction.reply({ embeds: [embed], flags: [MessageFlags.Ephemeral] });
     },

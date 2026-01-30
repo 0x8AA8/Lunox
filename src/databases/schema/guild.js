@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 
 const createGuild = mongoose.Schema({
     id: { type: String, required: true },
+    locale: { type: String, default: "en-US" },
     reconnect: {
         status: { type: Boolean, default: false },
         text: { type: String, default: null },

@@ -1,6 +1,7 @@
 const { EmbedBuilder, MessageFlags, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require("discord.js");
 const { find } = require("llyrics");
 const gsearch = require("google-search-url");
+const { t, resolveLocale } = require("../../../utils/i18n");
 
 module.exports = {
     name: "lyric",
@@ -17,6 +18,7 @@ module.exports = {
     },
     devOnly: false,
     run: async (client, interaction, player) => {
+        const locale = resolveLocale(client, interaction.guildId, interaction.user.id);
         const embed = new EmbedBuilder().setColor(client.config.embedColor);
         const formatText = (text) =>
             text
@@ -30,11 +32,11 @@ module.exports = {
         const trackTitle = formatText(track.title);
         const trackArtist = formatText(track.author);
         const lyricText = await lyricFind(trackTitle, trackArtist);
-        const loadingEmbed = new EmbedBuilder().setColor(client.config.embedColor).setDescription(`Please wait...!`);
+        const loadingEmbed = new EmbedBuilder().setColor(client.config.embedColor).setDescription(t(locale, "common.loading"));
         const loadingMsg = await interaction.reply({ embeds: [loadingEmbed] });
 
         if (!lyricText) {
-            embed.setDescription(`No lyrics found. Please try again later.`);
+            embed.setDescription(t(locale, "commands.lyric.notFound"));
 
             if (loadingMsg) {
                 return loadingMsg.edit({ embeds: [embed] });
@@ -46,7 +48,7 @@ module.exports = {
         if (lyricText.length <= 4096) {
             embed
                 .setAuthor({
-                    name: `${client.user.username} Lyrics`,
+                    name: t(locale, "commands.lyric.title", { bot: client.user.username }),
                     iconURL: client.user.displayAvatarURL(),
                 })
                 .setThumbnail(track.artworkUrl)
@@ -60,7 +62,7 @@ module.exports = {
         } else {
             embed
                 .setAuthor({
-                    name: `${client.user.username} Lyrics`,
+                    name: t(locale, "commands.lyric.title", { bot: client.user.username }),
                     iconURL: client.user.displayAvatarURL(),
                 })
                 .setThumbnail(track.artworkUrl)
@@ -68,7 +70,7 @@ module.exports = {
 
             const lyricUrl = gsearch.craft({ query: `${trackTitle} ${trackArtist} lyrics` }).url;
             const lyricButton = new ActionRowBuilder().addComponents(
-                new ButtonBuilder().setURL(lyricUrl.replace("http:", "https:")).setLabel("Full Lyrics").setStyle(ButtonStyle.Link),
+                new ButtonBuilder().setURL(lyricUrl.replace("http:", "https:")).setLabel(t(locale, "common.fullLyrics")).setStyle(ButtonStyle.Link),
             );
 
             if (loadingMsg) {

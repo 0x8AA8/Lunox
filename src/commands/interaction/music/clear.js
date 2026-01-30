@@ -1,4 +1,5 @@
 const { EmbedBuilder, MessageFlags } = require("discord.js");
+const { t, resolveLocale } = require("../../../utils/i18n");
 
 module.exports = {
     name: "clear",
@@ -15,17 +16,18 @@ module.exports = {
     },
     devOnly: false,
     run: async (client, interaction, player) => {
+        const locale = resolveLocale(client, interaction.guildId, interaction.user.id);
         const embed = new EmbedBuilder().setColor(client.config.embedColor);
 
         if (player.queue.isEmpty) {
-            embed.setDescription(`The queue is already empty.`);
+            embed.setDescription(t(locale, "commands.clear.alreadyEmpty"));
 
             return interaction.reply({ embeds: [embed], flags: [MessageFlags.Ephemeral] });
         }
 
         player.queue.clear();
 
-        embed.setDescription(`Cleared the queue.`);
+        embed.setDescription(t(locale, "commands.clear.cleared"));
 
         return interaction.reply({ embeds: [embed], flags: [MessageFlags.Ephemeral] });
     },

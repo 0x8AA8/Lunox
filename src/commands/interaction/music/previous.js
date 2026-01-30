@@ -1,4 +1,5 @@
 const { EmbedBuilder, MessageFlags } = require("discord.js");
+const { t, resolveLocale } = require("../../../utils/i18n");
 
 module.exports = {
     name: "previous",
@@ -15,17 +16,18 @@ module.exports = {
     },
     devOnly: false,
     run: async (client, interaction, player) => {
+        const locale = resolveLocale(client, interaction.guildId, interaction.user.id);
         const embed = new EmbedBuilder().setColor(client.config.embedColor);
 
         if (!player.queue.previous) {
-            embed.setDescription(`Previous song not found.`);
+            embed.setDescription(t(locale, "commands.previous.notFound"));
 
             return interaction.reply({ embeds: [embed], flags: [MessageFlags.Ephemeral] });
         }
 
         player.previous();
 
-        embed.setDescription(`Playing the previous song.`);
+        embed.setDescription(t(locale, "commands.previous.playing"));
 
         return interaction.reply({ embeds: [embed], flags: [MessageFlags.Ephemeral] });
     },

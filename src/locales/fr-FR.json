@@ -1,0 +1,169 @@
+{
+    "common": {
+        "supportServer": "Serveur de support",
+        "fullLyrics": "Paroles complètes",
+        "yes": "Oui",
+        "no": "Non",
+        "loading": "Veuillez patienter...!"
+    },
+    "categories": {
+        "general": "Général",
+        "music": "Musique",
+        "setting": "Paramètres"
+    },
+    "player": {
+        "nowPlaying": "Lecture en cours",
+        "songPaused": "Chanson en pause",
+        "source": "Source",
+        "duration": "Durée",
+        "requestedBy": "Demandé par",
+        "queueList": "Liste de lecture",
+        "totalSongs": "Total des chansons : {count}",
+        "totalDuration": "Durée totale : {duration}"
+    },
+    "errors": {
+        "notInVoice": "Vous devez d'abord rejoindre un salon vocal.",
+        "sameVoiceChannel": "Vous devez être dans le même salon vocal que le bot.",
+        "joinSameVoice": "Vous devez rejoindre le même salon vocal que le bot.",
+        "noPlayer": "Il n'y a pas de lecteur sur ce serveur.",
+        "noCurrentSong": "Aucune chanson n'est en cours de lecture sur ce serveur.",
+        "devOnly": "Cette commande est réservée aux développeurs.",
+        "botPermission": "Le bot n'a pas la permission `{perm}` pour exécuter cette commande.",
+        "userPermission": "Vous n'avez pas la permission `{perm}` pour exécuter cette commande.",
+        "botConnectPermission": "Le bot n'a pas la permission de `Se connecter` à votre salon vocal.",
+        "botSpeakPermission": "Le bot n'a pas la permission de `Parler` dans votre salon vocal.",
+        "botRequestToSpeak": "Le bot n'a pas la permission `Demander à parler` dans votre salon de conférence.",
+        "botPrioritySpeaker": "Le bot n'a pas la permission `Orateur prioritaire` dans votre salon de conférence.",
+        "onlyRequester": "Seul le demandeur peut utiliser ce bouton."
+    },
+    "commands": {
+        "help": {
+            "description": "Obtenir la liste des commandes",
+            "intro": "Bonjour **{user}**, je suis **{bot}**. Un bot musical Discord de haute qualité. Support Spotify, SoundCloud, Apple Music et autres. Découvrez ce que je peux faire avec les commandes ci-dessous :",
+            "footer": "Total des commandes : {count}"
+        },
+        "ping": {
+            "description": "Obtenir le ping du bot",
+            "response": "Pong ! `{ms}ms`."
+        },
+        "play": {
+            "description": "Jouer une chanson",
+            "optionQuery": "Fournir un nom de chanson ou une URL",
+            "noResults": "Aucun résultat trouvé pour votre recherche.",
+            "addedTrack": "Ajouté **[{title}](url)** - `{duration}`.",
+            "addedPlaylist": "Ajouté **[{name}]({url})** - `{count}` chansons à la file d'attente."
+        },
+        "queue": {
+            "description": "Afficher la file d'attente",
+            "empty": "La file d'attente est vide."
+        },
+        "skip": {
+            "description": "Passer la chanson actuelle",
+            "emptyQueue": "La file d'attente est vide. Impossible de passer.",
+            "skipped": "Chanson actuelle passée."
+        },
+        "stop": {
+            "description": "Arrêter le lecteur",
+            "stopped": "Chanson actuelle passée."
+        },
+        "pause": {
+            "description": "Mettre en pause la chanson actuelle",
+            "alreadyPaused": "Déjà en pause.",
+            "paused": "Chanson actuelle mise en pause."
+        },
+        "resume": {
+            "description": "Reprendre la chanson en pause",
+            "notPaused": "La chanson n'est pas en pause.",
+            "resumed": "Chanson actuelle reprise."
+        },
+        "volume": {
+            "description": "Régler le volume",
+            "optionValue": "Fournir une valeur de volume",
+            "current": "Volume actuel : `{volume}%`",
+            "set": "Volume réglé à : `{volume}%`",
+            "minVolume": "Le volume ne peut pas être inférieur à `{min}%`.",
+            "maxVolume": "Le volume ne peut pas être supérieur à `{max}%`."
+        },
+        "loop": {
+            "description": "Basculer le mode boucle",
+            "optionMode": "Définir le mode boucle",
+            "off": "Mode boucle réglé sur `désactivé`.",
+            "song": "Mode boucle réglé sur `chanson`.",
+            "queue": "Mode boucle réglé sur `file d'attente`."
+        },
+        "shuffle": {
+            "description": "Mélanger la file d'attente",
+            "emptyQueue": "La file d'attente est vide. Impossible de mélanger.",
+            "onlyOneSong": "Une seule chanson dans la file d'attente. Impossible de mélanger.",
+            "shuffled": "File d'attente mélangée.",
+            "queueShuffled": "La file d'attente a été mélangée."
+        },
+        "seek": {
+            "description": "Avancer dans la chanson actuelle",
+            "optionTime": "Fournir le temps en secondes",
+            "notSeekable": "La chanson actuelle ne peut pas être avancée.",
+            "timeExceeds": "Le temps dépasse la durée de la chanson.",
+            "seeked": "Avancé à : `{time}s`"
+        },
+        "remove": {
+            "description": "Supprimer une chanson de la file d'attente",
+            "optionPosition": "Fournir la position de la chanson",
+            "emptyQueue": "La file d'attente est vide.",
+            "invalidPosition": "La position dépasse le nombre total de chansons dans la file d'attente.",
+            "removed": "Chanson en position `{position}` supprimée"
+        },
+        "clear": {
+            "description": "Vider la file d'attente",
+            "alreadyEmpty": "La file d'attente est déjà vide.",
+            "cleared": "File d'attente vidée."
+        },
+        "filter": {
+            "description": "Définir le filtre",
+            "optionMode": "Choisir un filtre",
+            "cleared": "Filtre effacé.",
+            "set": "Filtre réglé sur : `{filter}`"
+        },
+        "join": {
+            "description": "Rejoindre le salon vocal",
+            "alreadyJoined": "Déjà dans un salon vocal.",
+            "joined": "Rejoint {channel}."
+        },
+        "leave": {
+            "description": "Quitter le salon vocal",
+            "leaving": "Quitte le salon vocal..."
+        },
+        "lyric": {
+            "description": "Obtenir les paroles de la chanson actuelle",
+            "notFound": "Paroles non trouvées. Veuillez réessayer plus tard.",
+            "title": "Paroles {bot}"
+        },
+        "previous": {
+            "description": "Jouer la chanson précédente",
+            "notFound": "Chanson précédente non trouvée.",
+            "playing": "Lecture de la chanson précédente."
+        },
+        "247": {
+            "description": "Basculer le mode 24/7",
+            "enabled": "Mode 24/7 maintenant `activé`.",
+            "disabled": "Mode 24/7 maintenant `désactivé`."
+        },
+        "autoplay": {
+            "description": "Basculer le mode lecture automatique",
+            "notSupported": "{status}. Le mode lecture automatique ne peut être utilisé qu'avec YouTube.",
+            "currentNotSupported": "La plateforme de la chanson actuelle n'est pas prise en charge",
+            "lastNotSupported": "La plateforme de la dernière file d'attente n'est pas prise en charge",
+            "enabled": "Mode lecture automatique maintenant `activé`",
+            "disabled": "Mode lecture automatique maintenant `désactivé`"
+        },
+        "language": {
+            "description": "Définir la langue du serveur",
+            "optionLocale": "Choisir une langue",
+            "updated": "Langue mise à jour en `{locale}`."
+        }
+    },
+    "events": {
+        "queueEmpty": "La file d'attente est vide. Vous pouvez désactiver ceci avec la commande `247`.",
+        "trackError": "Erreur de chanson. Passage à la chanson suivante...",
+        "trackErrorEmpty": "Erreur de chanson et la file d'attente est vide. Arrêt du lecteur..."
+    }
+}

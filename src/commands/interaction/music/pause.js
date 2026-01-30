@@ -1,4 +1,5 @@
 const { EmbedBuilder, MessageFlags } = require("discord.js");
+const { t, resolveLocale } = require("../../../utils/i18n");
 
 module.exports = {
     name: "pause",
@@ -15,17 +16,18 @@ module.exports = {
     },
     devOnly: false,
     run: async (client, interaction, player) => {
+        const locale = resolveLocale(client, interaction.guildId, interaction.user.id);
         const embed = new EmbedBuilder().setColor(client.config.embedColor);
 
         if (player.paused) {
-            embed.setDescription(`Already paused.`);
+            embed.setDescription(t(locale, "commands.pause.alreadyPaused"));
 
             return interaction.reply({ embeds: [embed], flags: [MessageFlags.Ephemeral] });
         }
 
         player.pause();
 
-        embed.setDescription(`Paused the current song.`);
+        embed.setDescription(t(locale, "commands.pause.paused"));
 
         return interaction.reply({ embeds: [embed], flags: [MessageFlags.Ephemeral] });
     },

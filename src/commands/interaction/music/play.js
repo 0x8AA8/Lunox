@@ -1,5 +1,6 @@
 const { EmbedBuilder, MessageFlags } = require("discord.js");
 const { convertTime } = require("../../../functions/timeFormat.js");
+const { t, resolveLocale } = require("../../../utils/i18n");
 
 module.exports = {
     name: "play",
@@ -24,10 +25,11 @@ module.exports = {
     },
     devOnly: false,
     run: async (client, interaction, player) => {
+        const locale = resolveLocale(client, interaction.guildId, interaction.user.id);
         const embed = new EmbedBuilder().setColor(client.config.embedColor);
 
         if (player && player.voiceId !== interaction.member.voice.channelId) {
-            embed.setDescription(`You must be in the same voice channel as the bot.`);
+            embed.setDescription(t(locale, "errors.sameVoiceChannel"));
 
             return interaction.reply({ embeds: [embed], flags: [MessageFlags.Ephemeral] });
         }
@@ -36,7 +38,7 @@ module.exports = {
         const result = await client.rainlink.search(query, { requester: interaction.member, sourceID: client.config.lavalinkSource });
 
         if (result.type === "EMPTY" || result.type === "ERROR" || !result.tracks.length) {
-            embed.setDescription(`No results found for your query.`);
+            embed.setDescription(t(locale, "commands.play.noResults"));
 
             return interaction.reply({ embeds: [embed], flags: [MessageFlags.Ephemeral] });
         }
@@ -55,7 +57,7 @@ module.exports = {
         if (result.type === "PLAYLIST") {
             for (const track of result.tracks) player.queue.add(track);
 
-            embed.setDescription(`Added **[${result.playlistName}](${query})** - \`${result.tracks.length}\` songs to the queue.`);
+            embed.setDescription(t(locale, "commands.play.addedPlaylist", { name: result.playlistName, url: query, count: result.tracks.length }));
         } else {
             const track = result.tracks[0];
             const trackTitle = formatString(track.title, 30).replace(/ - Topic$/, "") || "Unknown";

@@ -1,4 +1,5 @@
 const { EmbedBuilder } = require("discord.js");
+const { t, resolveLocale } = require("../../../utils/i18n");
 
 module.exports = async (client, player) => {
     if (!player) return;
@@ -29,9 +30,8 @@ module.exports = async (client, player) => {
 
         if (guildData && guildData.reconnect.status) return;
 
-        const embed = new EmbedBuilder()
-            .setColor(client.config.embedColor)
-            .setDescription(`The queue is empty. You can disable this by using \`247\` command.`);
+        const locale = resolveLocale(client, player.guildId);
+        const embed = new EmbedBuilder().setColor(client.config.embedColor).setDescription(t(locale, "events.queueEmpty"));
 
         if (channel) await channel.send({ embeds: [embed] });
 

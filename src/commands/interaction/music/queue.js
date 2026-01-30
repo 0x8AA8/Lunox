@@ -1,6 +1,7 @@
 const { EmbedBuilder, MessageFlags } = require("discord.js");
 const { createPage } = require("../../../functions/createPage.js");
 const { convertTime } = require("../../../functions/timeFormat.js");
+const { t, resolveLocale } = require("../../../utils/i18n");
 
 module.exports = {
     name: "queue",
@@ -17,11 +18,12 @@ module.exports = {
     },
     devOnly: false,
     run: async (client, interaction, player) => {
+        const locale = resolveLocale(client, interaction.guildId, interaction.user.id);
         const embed = new EmbedBuilder().setColor(client.config.embedColor);
         const formatString = (str, maxLength) => (str.length > maxLength ? str.substr(0, maxLength - 3) + "..." : str);
 
         if (player.queue.isEmpty) {
-            embed.setDescription(`The queue is empty.`);
+            embed.setDescription(t(locale, "commands.queue.empty"));
 
             return interaction.reply({ embeds: [embed], flags: [MessageFlags.Ephemeral] });
         }
@@ -36,11 +38,11 @@ module.exports = {
         });
 
         embed
-            .setAuthor({ name: "Queue List", iconURL: client.user.displayAvatarURL() })
+            .setAuthor({ name: t(locale, "player.queueList"), iconURL: client.user.displayAvatarURL() })
             .setColor(client.config.embedColor)
             .setThumbnail(interaction.guild.iconURL())
             .setFooter({
-                text: `Total Songs: ${player.queue.size}  •  Total Duration: ${convertTime(player.queue.duration)}`,
+                text: `${t(locale, "player.totalSongs", { count: player.queue.size })}  •  ${t(locale, "player.totalDuration", { duration: convertTime(player.queue.duration) })}`,
                 iconURL: client.user.displayAvatarURL(),
             });
 

@@ -1,4 +1,5 @@
 const { EmbedBuilder, MessageFlags } = require("discord.js");
+const { t, resolveLocale } = require("../../../utils/i18n");
 
 module.exports = {
     name: "remove",
@@ -23,10 +24,11 @@ module.exports = {
     },
     devOnly: false,
     run: async (client, interaction, player) => {
+        const locale = resolveLocale(client, interaction.guildId, interaction.user.id);
         const embed = new EmbedBuilder().setColor(client.config.embedColor);
 
         if (player.queue.isEmpty) {
-            embed.setDescription(`The queue is empty.`);
+            embed.setDescription(t(locale, "commands.remove.emptyQueue"));
 
             return interaction.reply({ embeds: [embed], flags: [MessageFlags.Ephemeral] });
         }
@@ -34,14 +36,14 @@ module.exports = {
         const position = interaction.options.getInteger("position");
 
         if (position > player.queue.size) {
-            embed.setDescription(`Position is greater than the total songs in the queue.`);
+            embed.setDescription(t(locale, "commands.remove.invalidPosition"));
 
             return interaction.reply({ embeds: [embed], flags: [MessageFlags.Ephemeral] });
         }
 
         player.queue.remove(position - 1);
 
-        embed.setDescription(`Removed song position: \`${position}\``);
+        embed.setDescription(t(locale, "commands.remove.removed", { position }));
 
         return interaction.reply({ embeds: [embed], flags: [MessageFlags.Ephemeral] });
     },

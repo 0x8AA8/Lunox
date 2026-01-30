@@ -1,4 +1,5 @@
 const { EmbedBuilder, MessageFlags } = require("discord.js");
+const { t, resolveLocale } = require("../../../utils/i18n");
 
 module.exports = {
     name: "loop",
@@ -28,18 +29,19 @@ module.exports = {
     },
     devOnly: false,
     run: async (client, interaction, player) => {
+        const locale = resolveLocale(client, interaction.guildId, interaction.user.id);
         const embed = new EmbedBuilder().setColor(client.config.embedColor);
         const mode = interaction.options.getString("mode");
 
         switch (mode) {
             case "none":
-                embed.setDescription(`Loop mode has been set to \`off\`.`);
+                embed.setDescription(t(locale, "commands.loop.off"));
                 break;
             case "song":
-                embed.setDescription(`Loop mode has been set to \`song\`.`);
+                embed.setDescription(t(locale, "commands.loop.song"));
                 break;
             case "queue":
-                embed.setDescription(`Loop mode has been set to \`queue\`.`);
+                embed.setDescription(t(locale, "commands.loop.queue"));
                 break;
         }
 

@@ -1,4 +1,5 @@
 const { EmbedBuilder, MessageFlags } = require("discord.js");
+const { t, resolveLocale } = require("../../../utils/i18n");
 
 module.exports = {
     name: "autoplay",
@@ -15,13 +16,13 @@ module.exports = {
     },
     devOnly: false,
     run: async (client, interaction, player) => {
+        const locale = resolveLocale(client, interaction.guildId, interaction.user.id);
         const embed = new EmbedBuilder().setColor(client.config.embedColor);
         const track = player.queue.isEmpty ? player.queue.current : player.queue[player.queue.size - 1];
 
         if (!isYoutube(track)) {
-            embed.setDescription(
-                `${player.queue.isEmpty() ? "The current song platform is not supported" : "The last queue platform is not supported"}. Autoplay mode can only be used with YouTube.`,
-            );
+            const status = player.queue.isEmpty ? t(locale, "commands.autoplay.currentNotSupported") : t(locale, "commands.autoplay.lastNotSupported");
+            embed.setDescription(t(locale, "commands.autoplay.notSupported", { status }));
 
             return interaction.reply({ embeds: [embed], flags: [MessageFlags.Ephemeral] });
         }
@@ -31,11 +32,11 @@ module.exports = {
         if (autoplay) {
             client.data.delete("autoplay", player.guildId);
 
-            embed.setDescription(`Autoplay mode is now \`disabled\``);
+            embed.setDescription(t(locale, "commands.autoplay.disabled"));
         } else {
             client.data.set("autoplay", player.guildId);
 
-            embed.setDescription(`Autoplay mode is now \`enabled\``);
+            embed.setDescription(t(locale, "commands.autoplay.enabled"));
         }
 
         return interaction.reply({ embeds: [embed], flags: [MessageFlags.Ephemeral] });

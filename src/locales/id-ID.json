@@ -1,0 +1,169 @@
+{
+    "common": {
+        "supportServer": "Server Dukungan",
+        "fullLyrics": "Lirik Lengkap",
+        "yes": "Ya",
+        "no": "Tidak",
+        "loading": "Mohon tunggu...!"
+    },
+    "categories": {
+        "general": "Umum",
+        "music": "Musik",
+        "setting": "Pengaturan"
+    },
+    "player": {
+        "nowPlaying": "Sedang Diputar",
+        "songPaused": "Lagu Dijeda",
+        "source": "Sumber",
+        "duration": "Durasi",
+        "requestedBy": "Diminta oleh",
+        "queueList": "Daftar Antrian",
+        "totalSongs": "Total Lagu: {count}",
+        "totalDuration": "Total Durasi: {duration}"
+    },
+    "errors": {
+        "notInVoice": "Kamu harus bergabung ke voice channel terlebih dahulu.",
+        "sameVoiceChannel": "Kamu harus berada di voice channel yang sama dengan bot.",
+        "joinSameVoice": "Kamu harus bergabung ke voice channel yang sama dengan bot.",
+        "noPlayer": "Tidak ada pemutar musik di server ini.",
+        "noCurrentSong": "Tidak ada lagu yang sedang diputar di server ini.",
+        "devOnly": "Perintah ini hanya tersedia untuk developer.",
+        "botPermission": "Bot tidak memiliki izin `{perm}` untuk menjalankan perintah ini.",
+        "userPermission": "Kamu tidak memiliki izin `{perm}` untuk menjalankan perintah ini.",
+        "botConnectPermission": "Bot tidak memiliki izin `Connect` di voice channel kamu.",
+        "botSpeakPermission": "Bot tidak memiliki izin `Speak` di voice channel kamu.",
+        "botRequestToSpeak": "Bot tidak memiliki izin `Request To Speak` di stage channel kamu.",
+        "botPrioritySpeaker": "Bot tidak memiliki izin `Priority Speaker` di stage channel kamu.",
+        "onlyRequester": "Hanya yang meminta lagu yang bisa menggunakan tombol ini."
+    },
+    "commands": {
+        "help": {
+            "description": "Dapatkan daftar perintah",
+            "intro": "Halo **{user}**, Saya **{bot}**. Bot Musik Discord berkualitas tinggi. Mendukung Spotify, SoundCloud, Apple Music & lainnya. Temukan apa yang bisa saya lakukan dengan perintah di bawah ini:",
+            "footer": "Total Perintah: {count}"
+        },
+        "ping": {
+            "description": "Dapatkan ping bot",
+            "response": "Pong! `{ms}ms`."
+        },
+        "play": {
+            "description": "Putar sebuah lagu",
+            "optionQuery": "Masukkan nama lagu atau url",
+            "noResults": "Tidak ada hasil untuk pencarian kamu.",
+            "addedTrack": "Ditambahkan **[{title}](url)** - `{duration}`.",
+            "addedPlaylist": "Ditambahkan **[{name}]({url})** - `{count}` lagu ke antrian."
+        },
+        "queue": {
+            "description": "Tampilkan daftar antrian",
+            "empty": "Antrian kosong."
+        },
+        "skip": {
+            "description": "Lewati lagu saat ini",
+            "emptyQueue": "Antrian kosong. Tidak bisa melewati.",
+            "skipped": "Melewati lagu saat ini."
+        },
+        "stop": {
+            "description": "Hentikan pemutar",
+            "stopped": "Melewati lagu saat ini."
+        },
+        "pause": {
+            "description": "Jeda lagu saat ini",
+            "alreadyPaused": "Sudah dijeda.",
+            "paused": "Menjeda lagu saat ini."
+        },
+        "resume": {
+            "description": "Lanjutkan lagu yang dijeda",
+            "notPaused": "Lagu tidak dijeda.",
+            "resumed": "Melanjutkan lagu saat ini."
+        },
+        "volume": {
+            "description": "Atur volume",
+            "optionValue": "Masukkan nilai volume",
+            "current": "Volume saat ini: `{volume}%`",
+            "set": "Volume diatur ke: `{volume}%`",
+            "minVolume": "Volume tidak bisa diatur di bawah `{min}%`.",
+            "maxVolume": "Volume tidak bisa diatur di atas `{max}%`."
+        },
+        "loop": {
+            "description": "Aktifkan mode loop",
+            "optionMode": "Atur mode loop",
+            "off": "Mode loop diatur ke `mati`.",
+            "song": "Mode loop diatur ke `lagu`.",
+            "queue": "Mode loop diatur ke `antrian`."
+        },
+        "shuffle": {
+            "description": "Acak antrian",
+            "emptyQueue": "Antrian kosong. Tidak bisa mengacak.",
+            "onlyOneSong": "Hanya satu lagu di antrian. Tidak bisa mengacak.",
+            "shuffled": "Antrian diacak.",
+            "queueShuffled": "Antrian telah diacak."
+        },
+        "seek": {
+            "description": "Loncat ke waktu tertentu",
+            "optionTime": "Masukkan waktu dalam detik",
+            "notSeekable": "Lagu saat ini tidak bisa diloncati.",
+            "timeExceeds": "Waktu lebih besar dari durasi lagu.",
+            "seeked": "Meloncat ke: `{time}d`"
+        },
+        "remove": {
+            "description": "Hapus lagu dari antrian",
+            "optionPosition": "Masukkan posisi lagu",
+            "emptyQueue": "Antrian kosong.",
+            "invalidPosition": "Posisi lebih besar dari total lagu di antrian.",
+            "removed": "Menghapus lagu posisi: `{position}`"
+        },
+        "clear": {
+            "description": "Bersihkan antrian",
+            "alreadyEmpty": "Antrian sudah kosong.",
+            "cleared": "Antrian dibersihkan."
+        },
+        "filter": {
+            "description": "Atur filter",
+            "optionMode": "Pilih filter",
+            "cleared": "Filter telah dihapus.",
+            "set": "Filter diatur ke: `{filter}`"
+        },
+        "join": {
+            "description": "Bergabung ke voice channel",
+            "alreadyJoined": "Sudah bergabung ke voice channel.",
+            "joined": "Bergabung ke {channel}."
+        },
+        "leave": {
+            "description": "Keluar dari voice channel",
+            "leaving": "Meninggalkan voice channel..."
+        },
+        "lyric": {
+            "description": "Dapatkan lirik lagu saat ini",
+            "notFound": "Lirik tidak ditemukan. Silakan coba lagi nanti.",
+            "title": "Lirik {bot}"
+        },
+        "previous": {
+            "description": "Putar lagu sebelumnya",
+            "notFound": "Lagu sebelumnya tidak ditemukan.",
+            "playing": "Memutar lagu sebelumnya."
+        },
+        "247": {
+            "description": "Aktifkan mode 247",
+            "enabled": "Mode 247 sekarang `aktif`.",
+            "disabled": "Mode 247 sekarang `nonaktif`."
+        },
+        "autoplay": {
+            "description": "Aktifkan mode autoplay",
+            "notSupported": "{status}. Mode autoplay hanya bisa digunakan dengan YouTube.",
+            "currentNotSupported": "Platform lagu saat ini tidak didukung",
+            "lastNotSupported": "Platform antrian terakhir tidak didukung",
+            "enabled": "Mode autoplay sekarang `aktif`",
+            "disabled": "Mode autoplay sekarang `nonaktif`"
+        },
+        "language": {
+            "description": "Atur bahasa server",
+            "optionLocale": "Pilih bahasa",
+            "updated": "Bahasa diperbarui ke `{locale}`."
+        }
+    },
+    "events": {
+        "queueEmpty": "Antrian kosong. Kamu bisa menonaktifkan ini dengan perintah `247`.",
+        "trackError": "Lagu mengalami error. Melewati ke lagu berikutnya...",
+        "trackErrorEmpty": "Lagu mengalami error dan antrian kosong. Menghentikan pemutar..."
+    }
+}

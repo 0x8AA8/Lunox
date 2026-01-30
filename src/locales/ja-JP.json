@@ -1,0 +1,169 @@
+{
+    "common": {
+        "supportServer": "サポートサーバー",
+        "fullLyrics": "完全な歌詞",
+        "yes": "はい",
+        "no": "いいえ",
+        "loading": "お待ちください...！"
+    },
+    "categories": {
+        "general": "一般",
+        "music": "音楽",
+        "setting": "設定"
+    },
+    "player": {
+        "nowPlaying": "再生中",
+        "songPaused": "一時停止中",
+        "source": "ソース",
+        "duration": "長さ",
+        "requestedBy": "リクエスト者",
+        "queueList": "キューリスト",
+        "totalSongs": "合計曲数: {count}",
+        "totalDuration": "合計時間: {duration}"
+    },
+    "errors": {
+        "notInVoice": "まずボイスチャンネルに参加してください。",
+        "sameVoiceChannel": "ボットと同じボイスチャンネルにいる必要があります。",
+        "joinSameVoice": "ボットと同じボイスチャンネルに参加してください。",
+        "noPlayer": "このサーバーにはプレイヤーがありません。",
+        "noCurrentSong": "このサーバーで再生中の曲はありません。",
+        "devOnly": "このコマンドは開発者のみ利用可能です。",
+        "botPermission": "ボットにはこのコマンドを実行する権限 `{perm}` がありません。",
+        "userPermission": "このコマンドを実行する権限 `{perm}` がありません。",
+        "botConnectPermission": "ボットにはあなたのボイスチャンネルへの `接続` 権限がありません。",
+        "botSpeakPermission": "ボットにはあなたのボイスチャンネルでの `発言` 権限がありません。",
+        "botRequestToSpeak": "ボットにはあなたのステージチャンネルでの `発言リクエスト` 権限がありません。",
+        "botPrioritySpeaker": "ボットにはあなたのステージチャンネルでの `優先スピーカー` 権限がありません。",
+        "onlyRequester": "リクエストした人だけがこのボタンを使用できます。"
+    },
+    "commands": {
+        "help": {
+            "description": "コマンド一覧を表示",
+            "intro": "こんにちは **{user}** さん、私は **{bot}** です。高品質なDiscord音楽ボットです。Spotify、SoundCloud、Apple Musicなどに対応しています。以下のコマンドで私ができることを確認してください：",
+            "footer": "コマンド数: {count}"
+        },
+        "ping": {
+            "description": "ボットのping値を取得",
+            "response": "ポン！ `{ms}ms`。"
+        },
+        "play": {
+            "description": "曲を再生",
+            "optionQuery": "曲名またはURLを入力",
+            "noResults": "検索結果が見つかりませんでした。",
+            "addedTrack": "追加しました **[{title}](url)** - `{duration}`。",
+            "addedPlaylist": "追加しました **[{name}]({url})** - `{count}` 曲をキューに追加。"
+        },
+        "queue": {
+            "description": "キューリストを表示",
+            "empty": "キューは空です。"
+        },
+        "skip": {
+            "description": "現在の曲をスキップ",
+            "emptyQueue": "キューが空です。スキップできません。",
+            "skipped": "現在の曲をスキップしました。"
+        },
+        "stop": {
+            "description": "プレイヤーを停止",
+            "stopped": "現在の曲をスキップしました。"
+        },
+        "pause": {
+            "description": "現在の曲を一時停止",
+            "alreadyPaused": "すでに一時停止中です。",
+            "paused": "現在の曲を一時停止しました。"
+        },
+        "resume": {
+            "description": "一時停止中の曲を再開",
+            "notPaused": "曲は一時停止していません。",
+            "resumed": "現在の曲を再開しました。"
+        },
+        "volume": {
+            "description": "音量を設定",
+            "optionValue": "音量値を入力",
+            "current": "現在の音量: `{volume}%`",
+            "set": "音量を `{volume}%` に設定しました。",
+            "minVolume": "音量は `{min}%` 以下に設定できません。",
+            "maxVolume": "音量は `{max}%` 以上に設定できません。"
+        },
+        "loop": {
+            "description": "ループモードを切り替え",
+            "optionMode": "ループモードを設定",
+            "off": "ループモードを `オフ` に設定しました。",
+            "song": "ループモードを `曲` に設定しました。",
+            "queue": "ループモードを `キュー` に設定しました。"
+        },
+        "shuffle": {
+            "description": "キューをシャッフル",
+            "emptyQueue": "キューが空です。シャッフルできません。",
+            "onlyOneSong": "キューに1曲しかありません。シャッフルできません。",
+            "shuffled": "キューをシャッフルしました。",
+            "queueShuffled": "キューがシャッフルされました。"
+        },
+        "seek": {
+            "description": "現在の曲をシーク",
+            "optionTime": "秒数を入力",
+            "notSeekable": "現在の曲はシークできません。",
+            "timeExceeds": "指定した時間が曲の長さを超えています。",
+            "seeked": "`{time}秒` にシークしました"
+        },
+        "remove": {
+            "description": "キューから曲を削除",
+            "optionPosition": "曲の位置を入力",
+            "emptyQueue": "キューは空です。",
+            "invalidPosition": "位置がキュー内の曲数を超えています。",
+            "removed": "位置 `{position}` の曲を削除しました"
+        },
+        "clear": {
+            "description": "キューをクリア",
+            "alreadyEmpty": "キューはすでに空です。",
+            "cleared": "キューをクリアしました。"
+        },
+        "filter": {
+            "description": "フィルターを設定",
+            "optionMode": "フィルターを選択",
+            "cleared": "フィルターをクリアしました。",
+            "set": "フィルターを `{filter}` に設定しました。"
+        },
+        "join": {
+            "description": "ボイスチャンネルに参加",
+            "alreadyJoined": "すでにボイスチャンネルに参加しています。",
+            "joined": "{channel} に参加しました。"
+        },
+        "leave": {
+            "description": "ボイスチャンネルから退出",
+            "leaving": "ボイスチャンネルから退出中..."
+        },
+        "lyric": {
+            "description": "現在の曲の歌詞を取得",
+            "notFound": "歌詞が見つかりませんでした。後でもう一度お試しください。",
+            "title": "{bot} 歌詞"
+        },
+        "previous": {
+            "description": "前の曲を再生",
+            "notFound": "前の曲が見つかりません。",
+            "playing": "前の曲を再生しています。"
+        },
+        "247": {
+            "description": "24/7モードを切り替え",
+            "enabled": "24/7モードが `有効` になりました。",
+            "disabled": "24/7モードが `無効` になりました。"
+        },
+        "autoplay": {
+            "description": "自動再生モードを切り替え",
+            "notSupported": "{status}。自動再生モードはYouTubeでのみ使用できます。",
+            "currentNotSupported": "現在の曲のプラットフォームはサポートされていません",
+            "lastNotSupported": "最後のキューのプラットフォームはサポートされていません",
+            "enabled": "自動再生モードが `有効` になりました",
+            "disabled": "自動再生モードが `無効` になりました"
+        },
+        "language": {
+            "description": "サーバーの言語を設定",
+            "optionLocale": "言語を選択",
+            "updated": "言語を `{locale}` に更新しました。"
+        }
+    },
+    "events": {
+        "queueEmpty": "キューが空です。`247` コマンドでこれを無効にできます。",
+        "trackError": "曲でエラーが発生しました。次の曲にスキップします...",
+        "trackErrorEmpty": "曲でエラーが発生し、キューが空です。プレイヤーを停止します..."
+    }
+}

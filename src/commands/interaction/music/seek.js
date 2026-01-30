@@ -1,4 +1,5 @@
 const { EmbedBuilder, MessageFlags } = require("discord.js");
+const { t, resolveLocale } = require("../../../utils/i18n");
 
 module.exports = {
     name: "seek",
@@ -24,24 +25,25 @@ module.exports = {
     },
     devOnly: false,
     run: async (client, interaction, player) => {
+        const locale = resolveLocale(client, interaction.guildId, interaction.user.id);
         const embed = new EmbedBuilder().setColor(client.config.embedColor);
         const time = interaction.options.getInteger("time");
 
         if (!player.queue.current.isSeekable) {
-            embed.setDescription(`The current song is not seekable.`);
+            embed.setDescription(t(locale, "commands.seek.notSeekable"));
 
             return interaction.reply({ embeds: [embed], flags: [MessageFlags.Ephemeral] });
         }
 
         if (time * 1000 > player.queue.current.duration) {
-            embed.setDescription(`Time is greater than the duration of the song.`);
+            embed.setDescription(t(locale, "commands.seek.timeExceeds"));
 
             return interaction.reply({ embeds: [embed], flags: [MessageFlags.Ephemeral] });
         }
 
         player.seek(time * 1000);
 
-        embed.setDescription(`Seeked to: \`${time}s\``);
+        embed.setDescription(t(locale, "commands.seek.seeked", { time }));
 
         return interaction.reply({ embeds: [embed], flags: [MessageFlags.Ephemeral] });
     },

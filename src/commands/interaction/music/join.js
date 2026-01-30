@@ -1,4 +1,5 @@
 const { EmbedBuilder, MessageFlags } = require("discord.js");
+const { t, resolveLocale } = require("../../../utils/i18n");
 
 module.exports = {
     name: "join",
@@ -15,10 +16,11 @@ module.exports = {
     },
     devOnly: false,
     run: async (client, interaction, player) => {
+        const locale = resolveLocale(client, interaction.guildId, interaction.user.id);
         const embed = new EmbedBuilder().setColor(client.config.embedColor);
 
         if (player) {
-            embed.setDescription(`Already joined a voice channel.`);
+            embed.setDescription(t(locale, "commands.join.alreadyJoined"));
 
             return interaction.reply({ embeds: [embed], flags: [MessageFlags.Ephemeral] });
         } else {
@@ -31,7 +33,7 @@ module.exports = {
                 deaf: true,
             });
 
-            embed.setDescription(`Joined ${interaction.member.voice.channel}.`);
+            embed.setDescription(t(locale, "commands.join.joined", { channel: interaction.member.voice.channel }));
 
             return interaction.reply({ embeds: [embed], flags: [MessageFlags.Ephemeral] });
         }

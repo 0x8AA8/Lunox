@@ -1,5 +1,6 @@
 const { EmbedBuilder, MessageFlags } = require("discord.js");
 const { minVolume, maxVolume } = require("../../../settings/config.js");
+const { t, resolveLocale } = require("../../../utils/i18n");
 
 module.exports = {
     name: "volume",
@@ -26,18 +27,19 @@ module.exports = {
     },
     devOnly: false,
     run: async (client, interaction, player) => {
+        const locale = resolveLocale(client, interaction.guildId, interaction.user.id);
         const embed = new EmbedBuilder().setColor(client.config.embedColor);
         const value = interaction.options.getInteger("value");
 
         if (!value) {
-            embed.setDescription(`Current volume: \`${player.volume}%\``);
+            embed.setDescription(t(locale, "commands.volume.current", { volume: player.volume }));
 
             return interaction.reply({ embeds: [embed], flags: [MessageFlags.Ephemeral] });
         }
 
         player.setVolume(value);
 
-        embed.setDescription(`Volume has been set to: \`${value}%\``);
+        embed.setDescription(t(locale, "commands.volume.set", { volume: value }));
 
         return interaction.reply({ embeds: [embed], flags: [MessageFlags.Ephemeral] });
     },

@@ -1,4 +1,5 @@
 const { EmbedBuilder, MessageFlags } = require("discord.js");
+const { t, resolveLocale } = require("../../../utils/i18n");
 
 module.exports = {
     name: "filter",
@@ -41,6 +42,7 @@ module.exports = {
     },
     devOnly: false,
     run: async (client, interaction, player) => {
+        const locale = resolveLocale(client, interaction.guildId, interaction.user.id);
         const embed = new EmbedBuilder().setColor(client.config.embedColor);
         const mode = interaction.options.getString("mode");
         const currentVolume = player.volume;
@@ -48,9 +50,9 @@ module.exports = {
         player.filter.set(mode);
 
         if (mode === "clear") {
-            embed.setDescription(`Filter has been cleared.`);
+            embed.setDescription(t(locale, "commands.filter.cleared"));
         } else {
-            embed.setDescription(`Filter has been set to: \`${mode}\``);
+            embed.setDescription(t(locale, "commands.filter.set", { filter: mode }));
         }
 
         player.setVolume(currentVolume);

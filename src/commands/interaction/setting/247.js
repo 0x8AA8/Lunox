@@ -1,4 +1,5 @@
 const { EmbedBuilder, MessageFlags } = require("discord.js");
+const { t, resolveLocale } = require("../../../utils/i18n");
 
 module.exports = {
     name: "247",
@@ -15,6 +16,7 @@ module.exports = {
     },
     devOnly: false,
     run: async (client, interaction, player) => {
+        const locale = resolveLocale(client, interaction.guildId, interaction.user.id);
         await interaction.deferReply({ flags: [MessageFlags.Ephemeral] });
 
         const guildData = client.data.get(`guildData_${interaction.guildId}`);
@@ -25,7 +27,7 @@ module.exports = {
 
         const embed = new EmbedBuilder()
             .setColor(client.config.embedColor)
-            .setDescription(guildData.reconnect.status ? "247 mode is now `enabled`." : "247 mode is now `disabled`.");
+            .setDescription(guildData.reconnect.status ? t(locale, "commands.247.enabled") : t(locale, "commands.247.disabled"));
 
         return interaction.editReply({ embeds: [embed] });
     },

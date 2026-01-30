@@ -1,9 +1,11 @@
 const { ActionRowBuilder, ButtonBuilder, ButtonStyle, EmbedBuilder, MessageFlags } = require("discord.js");
 const { convertTime } = require("../../../functions/timeFormat.js");
+const { t, resolveLocale } = require("../../../utils/i18n");
 
 module.exports = async (client, player, track) => {
     if (!player) return;
 
+    const locale = resolveLocale(client, player.guildId);
     const formatString = (str, maxLength) => (str.length > maxLength ? str.substr(0, maxLength - 3) + "..." : str);
     const trackTitle = formatString(track.title || "Unknown", 30).replace(/ - Topic$/, "");
     const trackAuthor = formatString(track.author || "Unknown", 25).replace(/ - Topic$/, "");
@@ -11,14 +13,14 @@ module.exports = async (client, player, track) => {
     const playerEmoji = client.emoji.player;
 
     const trackMsg = new EmbedBuilder()
-        .setAuthor({ name: player.paused ? "Song Paused" : "Now Playing", iconURL: client.user.displayAvatarURL() })
+        .setAuthor({ name: player.paused ? t(locale, "player.songPaused") : t(locale, "player.nowPlaying"), iconURL: client.user.displayAvatarURL() })
         .setColor(client.config.embedColor)
         .setThumbnail(track.artworkUrl)
         .setDescription(`**[${trackTitle} - ${trackAuthor}](${track.uri})**`)
         .setFields(
-            { name: "Source", value: `${capitalize(track.source)}`, inline: true },
-            { name: "Duration", value: `\`${trackDuration}\``, inline: true },
-            { name: "Requested by", value: `${track.requester}`, inline: true },
+            { name: t(locale, "player.source"), value: `${capitalize(track.source)}`, inline: true },
+            { name: t(locale, "player.duration"), value: `\`${trackDuration}\``, inline: true },
+            { name: t(locale, "player.requestedBy"), value: `${track.requester}`, inline: true },
         );
 
     const button = new ActionRowBuilder().addComponents(
@@ -47,16 +49,18 @@ module.exports = async (client, player, track) => {
     collector.on("collect", async (message) => {
         if (!player) return collector.stop();
 
+        const userLocale = resolveLocale(client, player.guildId, message.user.id);
+
         // Prevent user from using buttons if they are not in the same voice channel
         if (!message.member.voice.channel || player.voiceId !== message.member.voice.channelId) {
-            embed.setDescription(`You must be in the same voice channel as the bot.`);
+            embed.setDescription(t(userLocale, "errors.sameVoiceChannel"));
 
             return message.reply({ embeds: [embed], flags: [MessageFlags.Ephemeral] });
         }
 
         // Prevent user from using buttons if they are not the requester
         if (message.user.id !== track.requester.id) {
-            embed.setDescription(`Only the requester can use this button.`);
+            embed.setDescription(t(userLocale, "errors.onlyRequester"));
 
             return message.reply({ embeds: [embed], flags: [MessageFlags.Ephemeral] });
         }
@@ -69,21 +73,21 @@ module.exports = async (client, player, track) => {
                     player.pause();
 
                     button.components[0].setEmoji(playerEmoji.resume).setStyle(ButtonStyle.Primary);
-                    trackMsg.setAuthor({ name: "Song Paused", iconURL: client.user.displayAvatarURL() });
+                    trackMsg.setAuthor({ name: t(locale, "player.songPaused"), iconURL: client.user.displayAvatarURL() });
                 } else {
                     message.deferUpdate();
 
                     player.resume();
 
                     button.components[0].setEmoji(playerEmoji.pause).setStyle(ButtonStyle.Secondary);
-                    trackMsg.setAuthor({ name: "Now Playing", iconURL: client.user.displayAvatarURL() });
+                    trackMsg.setAuthor({ name: t(locale, "player.nowPlaying"), iconURL: client.user.displayAvatarURL() });
                 }
 
                 await nplaying.edit({ embeds: [trackMsg], components: [button, button2] });
                 break;
             case "prev":
                 if (!player.queue.previous.length) {
-                    embed.setDescription(`Previous song not found.`);
+                    embed.setDescription(t(userLocale, "commands.previous.notFound"));
 
                     return message.reply({ embeds: [embed], flags: [MessageFlags.Ephemeral] });
                 }
@@ -94,7 +98,7 @@ module.exports = async (client, player, track) => {
                 break;
             case "skip":
                 if (player.queue.isEmpty && !client.data.get("autoplay", player.guildId)) {
-                    embed.setDescription(`Queue is empty. Skip not possible.`);
+                    embed.setDescription(t(userLocale, "commands.skip.emptyQueue"));
 
                     return message.reply({ embeds: [embed], flags: [MessageFlags.Ephemeral] });
                 }
@@ -106,17 +110,17 @@ module.exports = async (client, player, track) => {
             case "loop":
                 switch (player.loop) {
                     case "none":
-                        embed.setDescription(`Loop mode has been set to \`song\`.`);
+                        embed.setDescription(t(userLocale, "commands.loop.song"));
 
                         player.setLoop("song");
                         break;
                     case "song":
-                        embed.setDescription(`Loop mode has been set to \`queue\`.`);
+                        embed.setDescription(t(userLocale, "commands.loop.queue"));
 
                         player.setLoop("queue");
                         break;
                     case "queue":
-                        embed.setDescription(`Loop mode has been set to \`off\`.`);
+                        embed.setDescription(t(userLocale, "commands.loop.off"));
 
                         player.setLoop("none");
                         break;
@@ -125,19 +129,19 @@ module.exports = async (client, player, track) => {
                 return message.reply({ embeds: [embed], flags: [MessageFlags.Ephemeral] });
             case "shuffle":
                 if (player.queue.isEmpty) {
-                    embed.setDescription(`Queue is empty. Shuffle not possible.`);
+                    embed.setDescription(t(userLocale, "commands.shuffle.emptyQueue"));
 
                     return message.reply({ embeds: [embed], flags: [MessageFlags.Ephemeral] });
                 }
 
                 player.queue.shuffle();
 
-                embed.setDescription(`Queue has been shuffled.`);
+                embed.setDescription(t(userLocale, "commands.shuffle.queueShuffled"));
 
                 return message.reply({ embeds: [embed], flags: [MessageFlags.Ephemeral] });
             case "voldown":
                 if (player.volume <= client.config.minVolume) {
-                    embed.setDescription(`Volume cannot be set below \`${client.config.minVolume}%\`.`);
+                    embed.setDescription(t(userLocale, "commands.volume.minVolume", { min: client.config.minVolume }));
 
                     return message.reply({ embeds: [embed], flags: [MessageFlags.Ephemeral] });
                 }
@@ -146,12 +150,12 @@ module.exports = async (client, player, track) => {
 
                 player.setVolume(volumeDown);
 
-                embed.setDescription(`Volume has been set to \`${volumeDown}%\`.`);
+                embed.setDescription(t(userLocale, "commands.volume.set", { volume: volumeDown }));
 
                 return message.reply({ embeds: [embed], flags: [MessageFlags.Ephemeral] });
             case "volup":
                 if (player.volume >= client.config.maxVolume) {
-                    embed.setDescription(`Volume cannot be set above \`${client.config.maxVolume}%\`.`);
+                    embed.setDescription(t(userLocale, "commands.volume.maxVolume", { max: client.config.maxVolume }));
 
                     return message.reply({ embeds: [embed], flags: [MessageFlags.Ephemeral] });
                 }
@@ -160,7 +164,7 @@ module.exports = async (client, player, track) => {
 
                 player.setVolume(volumeUp);
 
-                embed.setDescription(`Volume has been set to \`${volumeUp}%\`.`);
+                embed.setDescription(t(userLocale, "commands.volume.set", { volume: volumeUp }));
 
                 return message.reply({ embeds: [embed], flags: [MessageFlags.Ephemeral] });
             case "stop":

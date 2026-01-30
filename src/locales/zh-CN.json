@@ -1,0 +1,169 @@
+{
+    "common": {
+        "supportServer": "支持服务器",
+        "fullLyrics": "完整歌词",
+        "yes": "是",
+        "no": "否",
+        "loading": "请稍候...！"
+    },
+    "categories": {
+        "general": "常规",
+        "music": "音乐",
+        "setting": "设置"
+    },
+    "player": {
+        "nowPlaying": "正在播放",
+        "songPaused": "已暂停",
+        "source": "来源",
+        "duration": "时长",
+        "requestedBy": "请求者",
+        "queueList": "队列列表",
+        "totalSongs": "总曲数：{count}",
+        "totalDuration": "总时长：{duration}"
+    },
+    "errors": {
+        "notInVoice": "请先加入语音频道。",
+        "sameVoiceChannel": "您必须与机器人在同一语音频道中。",
+        "joinSameVoice": "请加入与机器人相同的语音频道。",
+        "noPlayer": "此服务器没有播放器。",
+        "noCurrentSong": "此服务器当前没有播放歌曲。",
+        "devOnly": "此命令仅供开发者使用。",
+        "botPermission": "机器人没有执行此命令的 `{perm}` 权限。",
+        "userPermission": "您没有执行此命令的 `{perm}` 权限。",
+        "botConnectPermission": "机器人没有 `连接` 到您语音频道的权限。",
+        "botSpeakPermission": "机器人没有在您语音频道中 `说话` 的权限。",
+        "botRequestToSpeak": "机器人没有在您舞台频道中 `请求发言` 的权限。",
+        "botPrioritySpeaker": "机器人没有在您舞台频道中 `优先发言者` 的权限。",
+        "onlyRequester": "只有请求者可以使用此按钮。"
+    },
+    "commands": {
+        "help": {
+            "description": "获取命令列表",
+            "intro": "您好 **{user}**，我是 **{bot}**。一个高品质的Discord音乐机器人。支持Spotify、SoundCloud、Apple Music等。使用以下命令了解我能做什么：",
+            "footer": "命令总数：{count}"
+        },
+        "ping": {
+            "description": "获取机器人延迟",
+            "response": "乒！`{ms}ms`。"
+        },
+        "play": {
+            "description": "播放歌曲",
+            "optionQuery": "输入歌曲名称或链接",
+            "noResults": "未找到搜索结果。",
+            "addedTrack": "已添加 **[{title}](url)** - `{duration}`。",
+            "addedPlaylist": "已添加 **[{name}]({url})** - `{count}` 首歌曲到队列。"
+        },
+        "queue": {
+            "description": "显示队列列表",
+            "empty": "队列为空。"
+        },
+        "skip": {
+            "description": "跳过当前歌曲",
+            "emptyQueue": "队列为空，无法跳过。",
+            "skipped": "已跳过当前歌曲。"
+        },
+        "stop": {
+            "description": "停止播放器",
+            "stopped": "已跳过当前歌曲。"
+        },
+        "pause": {
+            "description": "暂停当前歌曲",
+            "alreadyPaused": "已经暂停了。",
+            "paused": "已暂停当前歌曲。"
+        },
+        "resume": {
+            "description": "恢复暂停的歌曲",
+            "notPaused": "歌曲未暂停。",
+            "resumed": "已恢复当前歌曲。"
+        },
+        "volume": {
+            "description": "设置音量",
+            "optionValue": "输入音量值",
+            "current": "当前音量：`{volume}%`",
+            "set": "音量已设置为：`{volume}%`",
+            "minVolume": "音量不能低于 `{min}%`。",
+            "maxVolume": "音量不能高于 `{max}%`。"
+        },
+        "loop": {
+            "description": "切换循环模式",
+            "optionMode": "设置循环模式",
+            "off": "循环模式已设置为 `关闭`。",
+            "song": "循环模式已设置为 `单曲`。",
+            "queue": "循环模式已设置为 `队列`。"
+        },
+        "shuffle": {
+            "description": "随机播放队列",
+            "emptyQueue": "队列为空，无法随机播放。",
+            "onlyOneSong": "队列中只有一首歌，无法随机播放。",
+            "shuffled": "已随机播放队列。",
+            "queueShuffled": "队列已随机播放。"
+        },
+        "seek": {
+            "description": "跳转到指定时间",
+            "optionTime": "输入秒数",
+            "notSeekable": "当前歌曲不支持跳转。",
+            "timeExceeds": "时间超过歌曲时长。",
+            "seeked": "已跳转到：`{time}秒`"
+        },
+        "remove": {
+            "description": "从队列中移除歌曲",
+            "optionPosition": "输入歌曲位置",
+            "emptyQueue": "队列为空。",
+            "invalidPosition": "位置超过队列中的歌曲总数。",
+            "removed": "已移除位置 `{position}` 的歌曲"
+        },
+        "clear": {
+            "description": "清空队列",
+            "alreadyEmpty": "队列已经为空。",
+            "cleared": "已清空队列。"
+        },
+        "filter": {
+            "description": "设置滤镜",
+            "optionMode": "选择滤镜",
+            "cleared": "滤镜已清除。",
+            "set": "滤镜已设置为：`{filter}`"
+        },
+        "join": {
+            "description": "加入语音频道",
+            "alreadyJoined": "已经加入语音频道。",
+            "joined": "已加入 {channel}。"
+        },
+        "leave": {
+            "description": "离开语音频道",
+            "leaving": "正在离开语音频道..."
+        },
+        "lyric": {
+            "description": "获取当前歌曲歌词",
+            "notFound": "未找到歌词，请稍后再试。",
+            "title": "{bot} 歌词"
+        },
+        "previous": {
+            "description": "播放上一首歌曲",
+            "notFound": "未找到上一首歌曲。",
+            "playing": "正在播放上一首歌曲。"
+        },
+        "247": {
+            "description": "切换24/7模式",
+            "enabled": "24/7模式已 `启用`。",
+            "disabled": "24/7模式已 `禁用`。"
+        },
+        "autoplay": {
+            "description": "切换自动播放模式",
+            "notSupported": "{status}。自动播放模式只能在YouTube上使用。",
+            "currentNotSupported": "当前歌曲平台不支持",
+            "lastNotSupported": "最后队列平台不支持",
+            "enabled": "自动播放模式已 `启用`",
+            "disabled": "自动播放模式已 `禁用`"
+        },
+        "language": {
+            "description": "设置服务器语言",
+            "optionLocale": "选择语言",
+            "updated": "语言已更新为 `{locale}`。"
+        }
+    },
+    "events": {
+        "queueEmpty": "队列为空。您可以使用 `247` 命令禁用此功能。",
+        "trackError": "歌曲出错，正在跳到下一首...",
+        "trackErrorEmpty": "歌曲出错且队列为空，正在停止播放器..."
+    }
+}

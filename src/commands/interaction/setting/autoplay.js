@@ -4,6 +4,13 @@ const { t, resolveLocale } = require("../../../utils/i18n");
 module.exports = {
     name: "autoplay",
     description: "Toggle autoplay mode",
+    description_localizations: {
+        id: "Aktifkan mode autoplay",
+        fr: "Basculer le mode lecture automatique",
+        ja: "自動再生モードを切り替え",
+        ko: "자동 재생 모드 전환",
+        "zh-CN": "切换自动播放模式",
+    },
     category: "setting",
     permissions: {
         bot: [],

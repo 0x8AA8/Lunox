@@ -4,6 +4,13 @@ const { t, resolveLocale } = require("../../../utils/i18n");
 module.exports = {
     name: "pause",
     description: "Pause the current song",
+    description_localizations: {
+        id: "Jeda lagu saat ini",
+        fr: "Mettre en pause la chanson actuelle",
+        ja: "現在の曲を一時停止",
+        ko: "현재 노래 일시 정지",
+        "zh-CN": "暂停当前歌曲",
+    },
     category: "music",
     permissions: {
         bot: [],

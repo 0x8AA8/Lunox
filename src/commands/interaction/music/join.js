@@ -4,6 +4,13 @@ const { t, resolveLocale } = require("../../../utils/i18n");
 module.exports = {
     name: "join",
     description: "Join the voice channel",
+    description_localizations: {
+        id: "Bergabung ke voice channel",
+        fr: "Rejoindre le salon vocal",
+        ja: "ボイスチャンネルに参加",
+        ko: "음성 채널 참가",
+        "zh-CN": "加入语音频道",
+    },
     category: "music",
     permissions: {
         bot: [],

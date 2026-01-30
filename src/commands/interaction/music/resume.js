@@ -4,6 +4,13 @@ const { t, resolveLocale } = require("../../../utils/i18n");
 module.exports = {
     name: "resume",
     description: "Resume the current paused song",
+    description_localizations: {
+        id: "Lanjutkan lagu yang dijeda",
+        fr: "Reprendre la chanson en pause",
+        ja: "一時停止中の曲を再開",
+        ko: "일시 정지된 노래 재개",
+        "zh-CN": "恢复暂停的歌曲",
+    },
     category: "music",
     permissions: {
         bot: [],

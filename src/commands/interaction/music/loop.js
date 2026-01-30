@@ -4,11 +4,25 @@ const { t, resolveLocale } = require("../../../utils/i18n");
 module.exports = {
     name: "loop",
     description: "Toggle loop mode",
+    description_localizations: {
+        id: "Aktifkan mode loop",
+        fr: "Basculer le mode boucle",
+        ja: "ループモードを切り替え",
+        ko: "반복 모드 전환",
+        "zh-CN": "切换循环模式",
+    },
     category: "music",
     options: [
         {
             name: "mode",
             description: "Set loop mode",
+            description_localizations: {
+                id: "Atur mode loop",
+                fr: "Définir le mode boucle",
+                ja: "ループモードを設定",
+                ko: "반복 모드 설정",
+                "zh-CN": "设置循环模式",
+            },
             type: 3,
             required: true,
             choices: [

@@ -4,11 +4,25 @@ const { t, resolveLocale } = require("../../../utils/i18n");
 module.exports = {
     name: "filter",
     description: "Set the filter",
+    description_localizations: {
+        id: "Atur filter",
+        fr: "Définir le filtre",
+        ja: "フィルターを設定",
+        ko: "필터 설정",
+        "zh-CN": "设置滤镜",
+    },
     category: "music",
     options: [
         {
             name: "mode",
             description: "Choose a filter",
+            description_localizations: {
+                id: "Pilih filter",
+                fr: "Choisir un filtre",
+                ja: "フィルターを選択",
+                ko: "필터 선택",
+                "zh-CN": "选择滤镜",
+            },
             type: 3,
             required: true,
             choices: [

@@ -4,6 +4,13 @@ const { t, resolveLocale } = require("../../../utils/i18n");
 module.exports = {
     name: "247",
     description: "Toggle 247 mode",
+    description_localizations: {
+        id: "Aktifkan mode 247",
+        fr: "Basculer le mode 24/7",
+        ja: "24/7モードを切り替え",
+        ko: "24/7 모드 전환",
+        "zh-CN": "切换24/7模式",
+    },
     category: "setting",
     permissions: {
         bot: [],

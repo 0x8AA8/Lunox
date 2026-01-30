@@ -4,6 +4,13 @@ const { t, resolveLocale } = require("../../../utils/i18n");
 module.exports = {
     name: "leave",
     description: "Leave the voice channel",
+    description_localizations: {
+        id: "Keluar dari voice channel",
+        fr: "Quitter le salon vocal",
+        ja: "ボイスチャンネルから退出",
+        ko: "음성 채널 나가기",
+        "zh-CN": "离开语音频道",
+    },
     category: "music",
     permissions: {
         bot: [],

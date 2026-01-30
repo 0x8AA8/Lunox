@@ -4,6 +4,13 @@ const { t, resolveLocale } = require("../../../utils/i18n");
 module.exports = {
     name: "stop",
     description: "Stop the player",
+    description_localizations: {
+        id: "Hentikan pemutar",
+        fr: "Arrêter le lecteur",
+        ja: "プレイヤーを停止",
+        ko: "플레이어 정지",
+        "zh-CN": "停止播放器",
+    },
     category: "music",
     permissions: {
         bot: [],

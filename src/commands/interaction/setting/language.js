@@ -4,11 +4,25 @@ const { t, resolveLocale } = require("../../../utils/i18n");
 module.exports = {
     name: "language",
     description: "Set the server language",
+    description_localizations: {
+        id: "Atur bahasa server",
+        fr: "Définir la langue du serveur",
+        ja: "サーバーの言語を設定",
+        ko: "서버 언어 설정",
+        "zh-CN": "设置服务器语言",
+    },
     category: "setting",
     options: [
         {
             name: "locale",
             description: "Choose a language",
+            description_localizations: {
+                id: "Pilih bahasa",
+                fr: "Choisir une langue",
+                ja: "言語を選択",
+                ko: "언어 선택",
+                "zh-CN": "选择语言",
+            },
             type: 3,
             required: true,
             choices: [

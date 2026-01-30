@@ -4,6 +4,13 @@ const { t, resolveLocale } = require("../../../utils/i18n");
 module.exports = {
     name: "clear",
     description: "Clear the queue",
+    description_localizations: {
+        id: "Bersihkan antrian",
+        fr: "Vider la file d'attente",
+        ja: "キューをクリア",
+        ko: "대기열 비우기",
+        "zh-CN": "清空队列",
+    },
     category: "music",
     permissions: {
         bot: [],

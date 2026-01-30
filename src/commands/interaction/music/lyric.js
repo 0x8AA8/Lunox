@@ -6,6 +6,13 @@ const { t, resolveLocale } = require("../../../utils/i18n");
 module.exports = {
     name: "lyric",
     description: "Get the lyric of the current song",
+    description_localizations: {
+        id: "Dapatkan lirik lagu saat ini",
+        fr: "Obtenir les paroles de la chanson actuelle",
+        ja: "現在の曲の歌詞を取得",
+        ko: "현재 노래 가사 가져오기",
+        "zh-CN": "获取当前歌曲歌词",
+    },
     category: "music",
     permissions: {
         bot: [],

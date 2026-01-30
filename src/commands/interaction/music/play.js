@@ -5,11 +5,25 @@ const { t, resolveLocale } = require("../../../utils/i18n");
 module.exports = {
     name: "play",
     description: "Play a song",
+    description_localizations: {
+        id: "Putar sebuah lagu",
+        fr: "Jouer une chanson",
+        ja: "曲を再生",
+        ko: "노래 재생",
+        "zh-CN": "播放歌曲",
+    },
     category: "music",
     options: [
         {
             name: "query",
             description: "Provide a song name or url",
+            description_localizations: {
+                id: "Masukkan nama lagu atau url",
+                fr: "Fournir un nom de chanson ou une URL",
+                ja: "曲名またはURLを入力",
+                ko: "노래 이름 또는 URL 입력",
+                "zh-CN": "输入歌曲名称或链接",
+            },
             type: 3,
             required: true,
         },

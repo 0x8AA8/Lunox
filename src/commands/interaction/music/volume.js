@@ -5,11 +5,25 @@ const { t, resolveLocale } = require("../../../utils/i18n");
 module.exports = {
     name: "volume",
     description: "Set the volume",
+    description_localizations: {
+        id: "Atur volume",
+        fr: "Régler le volume",
+        ja: "音量を設定",
+        ko: "볼륨 설정",
+        "zh-CN": "设置音量",
+    },
     category: "music",
     options: [
         {
             name: "value",
             description: "Provide volume value",
+            description_localizations: {
+                id: "Masukkan nilai volume",
+                fr: "Fournir une valeur de volume",
+                ja: "音量値を入力",
+                ko: "볼륨 값 입력",
+                "zh-CN": "输入音量值",
+            },
             type: 4,
             min_value: minVolume,
             max_value: maxVolume,

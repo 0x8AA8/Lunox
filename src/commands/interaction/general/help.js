@@ -5,6 +5,13 @@ const { t, resolveLocale } = require("../../../utils/i18n");
 module.exports = {
     name: "help",
     description: "Get a list of commands",
+    description_localizations: {
+        id: "Dapatkan daftar perintah",
+        fr: "Obtenir la liste des commandes",
+        ja: "コマンド一覧を表示",
+        ko: "명령어 목록 보기",
+        "zh-CN": "获取命令列表",
+    },
     category: "general",
     permissions: {
         bot: [],

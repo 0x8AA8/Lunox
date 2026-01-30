@@ -4,11 +4,25 @@ const { t, resolveLocale } = require("../../../utils/i18n");
 module.exports = {
     name: "seek",
     description: "Seek the current song",
+    description_localizations: {
+        id: "Loncat ke waktu tertentu",
+        fr: "Avancer dans la chanson actuelle",
+        ja: "現在の曲をシーク",
+        ko: "현재 노래 탐색",
+        "zh-CN": "跳转到指定时间",
+    },
     category: "music",
     options: [
         {
             name: "time",
             description: "Provide time in seconds",
+            description_localizations: {
+                id: "Masukkan waktu dalam detik",
+                fr: "Fournir le temps en secondes",
+                ja: "秒数を入力",
+                ko: "초 단위로 시간 입력",
+                "zh-CN": "输入秒数",
+            },
             type: 4,
             min_value: 0,
             required: true,

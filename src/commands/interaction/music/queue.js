@@ -6,6 +6,13 @@ const { t, resolveLocale } = require("../../../utils/i18n");
 module.exports = {
     name: "queue",
     description: "Show the queue list",
+    description_localizations: {
+        id: "Tampilkan daftar antrian",
+        fr: "Afficher la file d'attente",
+        ja: "キューリストを表示",
+        ko: "대기열 목록 보기",
+        "zh-CN": "显示队列列表",
+    },
     category: "music",
     permissions: {
         bot: [],

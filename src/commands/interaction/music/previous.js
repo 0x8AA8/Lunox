@@ -4,6 +4,13 @@ const { t, resolveLocale } = require("../../../utils/i18n");
 module.exports = {
     name: "previous",
     description: "Play the previous song",
+    description_localizations: {
+        id: "Putar lagu sebelumnya",
+        fr: "Jouer la chanson précédente",
+        ja: "前の曲を再生",
+        ko: "이전 노래 재생",
+        "zh-CN": "播放上一首歌曲",
+    },
     category: "music",
     permissions: {
         bot: [],

@@ -4,6 +4,13 @@ const { t, resolveLocale } = require("../../../utils/i18n");
 module.exports = {
     name: "skip",
     description: "Skip the current song",
+    description_localizations: {
+        id: "Lewati lagu saat ini",
+        fr: "Passer la chanson actuelle",
+        ja: "現在の曲をスキップ",
+        ko: "현재 노래 건너뛰기",
+        "zh-CN": "跳过当前歌曲",
+    },
     category: "music",
     permissions: {
         bot: [],

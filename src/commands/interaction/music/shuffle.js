@@ -4,6 +4,13 @@ const { t, resolveLocale } = require("../../../utils/i18n");
 module.exports = {
     name: "shuffle",
     description: "Shuffle the queue",
+    description_localizations: {
+        id: "Acak antrian",
+        fr: "Mélanger la file d'attente",
+        ja: "キューをシャッフル",
+        ko: "대기열 섞기",
+        "zh-CN": "随机播放队列",
+    },
     category: "music",
     permissions: {
         bot: [],

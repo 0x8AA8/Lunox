@@ -4,6 +4,13 @@ const { t, resolveLocale } = require("../../../utils/i18n");
 module.exports = {
     name: "ping",
     description: "Get the bot's ping",
+    description_localizations: {
+        id: "Dapatkan ping bot",
+        fr: "Obtenir le ping du bot",
+        ja: "ボットのping値を取得",
+        ko: "봇 핑 확인",
+        "zh-CN": "获取机器人延迟",
+    },
     category: "general",
     permissions: {
         bot: [],

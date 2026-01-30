@@ -4,11 +4,25 @@ const { t, resolveLocale } = require("../../../utils/i18n");
 module.exports = {
     name: "remove",
     description: "Remove a song from the queue",
+    description_localizations: {
+        id: "Hapus lagu dari antrian",
+        fr: "Supprimer une chanson de la file d'attente",
+        ja: "キューから曲を削除",
+        ko: "대기열에서 노래 제거",
+        "zh-CN": "从队列中移除歌曲",
+    },
     category: "music",
     options: [
         {
             name: "position",
             description: "Provide song position",
+            description_localizations: {
+                id: "Masukkan posisi lagu",
+                fr: "Fournir la position de la chanson",
+                ja: "曲の位置を入力",
+                ko: "노래 위치 입력",
+                "zh-CN": "输入歌曲位置",
+            },
             type: 4,
             min_value: 1,
         },
